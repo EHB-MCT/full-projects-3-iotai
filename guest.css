@@ -15,3 +15,7 @@ body {
     width: 80%;
     height: 20px;
 }
+
+.socialmedia {
+    display: flex;
+}
