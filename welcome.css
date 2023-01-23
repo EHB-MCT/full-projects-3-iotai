@@ -1,0 +1,12 @@
+body {
+    text-align: center;
+    background-color: black;
+    width: 414px;
+    height: 896px;
+    color: white;
+}
+
+.logo img {
+    height: 150px;
+    width: 150px;
+}
