@@ -9,13 +9,13 @@ body{
 .rolscherm_roltekst {
     color: #FFB4B6;
     font-family: industry-inc-outline, sans-serif;
-    font-size: 90px;
+    font-size: 60px;
 }
 
 .rolscherm_roluitleg {
     color: white;
     font-family: 'Roboto', sans-serif;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 /*Red glow*/
