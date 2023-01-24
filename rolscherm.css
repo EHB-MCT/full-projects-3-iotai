@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://use.typekit.net/mmd8gch.css");
+
+body{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+.rolscherm_roltekst {
+    color: #FFB4B6;
+    font-family: industry-inc-outline, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 90px;
+}
+
+.rolscherm_roluitleg {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+
+}
+
+.glow_red {
+  color: #fff;
+  -webkit-animation: glow_red 1s ease-in-out infinite alternate;
+  -moz-animation: glow_red 1s ease-in-out infinite alternate;
+  animation: glow_red 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow_red {
+    from {
+      text-shadow: 0 0 10px #FFB4B6, 0 0 20px #FFB4B6, 0 0 30px #FF2434, 0 0 40px #FF2434, 0 0 50px #FF2434, 0 0 60px #FF2434, 0 0 70px #FF2434;
+    }
+    to {
+      text-shadow: 0 0 20px #FFB4B6, 0 0 30px #ff3333, 0 0 40px #FF0000, 0 0 50px #FF0000, 0 0 60px #FF0000, 0 0 70px #FF0000, 0 0 80px #FF0000;
+    }
+  }
+
+  .glow_blue {
+    color: #fff;
+    -webkit-animation: glow_blue 1s ease-in-out infinite alternate;
+    -moz-animation: glow_blue 1s ease-in-out infinite alternate;
+    animation: glow_blue 1s ease-in-out infinite alternate;
+  }
+  
+  @-webkit-keyframes glow_blue {
+      from {
+        text-shadow: 0 0 10px #dafff3, 0 0 20px #dafff3, 0 0 30px #00FFAF, 0 0 40px #00FFAF, 0 0 50px #00FFAF, 0 0 60px #00FFAF, 0 0 70px #00FFAF;
+      }
+      to {
+        text-shadow: 0 0 20px #dafff3, 0 0 30px #00FFAF, 0 0 40px #00FFAF, 0 0 50px #00FFAF, 0 0 60px #00FFAF, 0 0 70px #00FFAF, 0 0 80px #00FFAF;
+      }
+    }
