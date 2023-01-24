@@ -1,16 +1,4 @@
 "use strict"
-/*roleSelection();
-
-function roleSelection(){
-let randomnumber = Math.random()*10;
-console.log(randomnumber);
-let role = "";
-if(randomnumber >= 8){role = "predator"} else {role = "scientist"}
-console.log(role);
-
-document.getElementById("rolscherm_roltekst").innerHTML = "role: " + role; 
-}*/
-
 window.onload = (event) => {
     console.log("page is fully loaded");
     roleSelection();
