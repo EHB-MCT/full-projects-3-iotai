@@ -1,3 +1,7 @@
+img{
+    margin-top: 35%;
+}
+
 .scaleAnimation {
     animation: scaling 2s alternate infinite ease-in;
 
@@ -6,6 +10,6 @@
   @keyframes scaling {
     0%   {transform: scale(.5);
         animation-timing-function: ease-out;}    
-    100% {transform: scale(.7);
+    100% {transform: scale(.9);
         animation-timing-function: ease-out;}
   }
