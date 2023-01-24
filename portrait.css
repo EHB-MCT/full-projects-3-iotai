@@ -5,3 +5,11 @@ body {
     height: 896px;
     color: white;
 }
+
+/*Logo klein van boven*/
+.logo img {
+    height: 50%;
+    width: 50%;
+    display: block;
+    margin: auto;
+}
