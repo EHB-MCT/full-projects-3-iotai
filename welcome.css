@@ -1,0 +1,16 @@
+body {
+    text-align: center;
+    background-color: #001600;
+    width: 414px;
+    height: 896px;
+    color: white;
+}
+
+.logo img {
+    height: 150px;
+    width: 150px;
+}
+
+.socialmedia {
+    display: flex;
+}

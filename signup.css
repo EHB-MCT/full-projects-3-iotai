@@ -1,0 +1,24 @@
+body {
+    text-align: center;
+    background-color: #001600;
+    width: 414px;
+    height: 896px;
+}
+
+.logo img {
+    height: 150px;
+    width: 150px;
+}
+
+.signup__title {
+    color: white;
+}
+
+.input {
+    width: 80%;
+    height: 20px;
+}
+
+.socialmedia {
+    display: flex;
+}
