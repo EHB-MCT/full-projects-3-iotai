@@ -1,9 +1,8 @@
 body {
     text-align: center;
     background-color: #001600;
-    width: 414px;
-    height: 896px;
     color: white;
+    margin: 0;
 }
 
 .logo img {
@@ -11,15 +10,16 @@ body {
     width: 150px;
 }
 
-.input {
-    width: 80%;
-    height: 20px;
-}
 
 .socialmedia {
     display: flex;
 }
 
 .spatie {
-    height: 450px;
+    height: 250px;
+}
+
+.form__button {
+    border: 2px solid #00FFAF;
+    padding: 20px;
 }
