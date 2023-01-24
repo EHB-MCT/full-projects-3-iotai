@@ -19,3 +19,7 @@ body {
 .socialmedia {
     display: flex;
 }
+
+.spatie {
+    height: 450px;
+}

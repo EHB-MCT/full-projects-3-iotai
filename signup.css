@@ -3,6 +3,7 @@ body {
     background-color: black;
     width: 414px;
     height: 896px;
+    color: white;
 }
 
 .logo img {
@@ -10,9 +11,6 @@ body {
     width: 150px;
 }
 
-.signup__title {
-    color: white;
-}
 
 .input {
     width: 80%;
@@ -21,4 +19,8 @@ body {
 
 .socialmedia {
     display: flex;
+}
+
+.spatie {
+    height: 450px;
 }

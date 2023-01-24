@@ -11,6 +11,15 @@ body {
     width: 150px;
 }
 
+.input {
+    width: 80%;
+    height: 20px;
+}
+
 .socialmedia {
     display: flex;
+}
+
+.spatie {
+    height: 450px;
 }
