@@ -6,12 +6,12 @@ body{
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 50%;
+    margin-top: 40%;
 }
 
 .scaleAnimation {
     animation: scaling 2s alternate infinite ease-in;
-    width: 100%;
+    width: 80%;
   }
   
   @keyframes scaling {
