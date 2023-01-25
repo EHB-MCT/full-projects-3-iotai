@@ -1,0 +1,48 @@
+.rule_header{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+.logo img {
+    height: 40%;
+    width: 40%;
+    display: block;
+    margin: auto auto 20px auto;
+}
+
+.rule_counter{
+    margin-top: -5px;
+}
+
+.rule_footer{
+    width: 100%;
+    height: 120px;
+    padding: 1px;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+}
+
+.rule_footer button{
+    width: 80%;
+    padding: 10px;
+    margin: 15px 0;
+    border: 2px solid;
+}
+
+.rule_footer_next{  
+    color: #00FFAF;
+    background-color: #001600;
+    border: #00FFAF;
+    text-shadow: 0px 1px 10px #00FFAF;
+    box-shadow: 0px 0px 20px 5px #00FFAF;
+    font-size: 15px;
+}
+
+.rule_footer_skip{
+    color: white;
+    text-decoration: none;
+}
