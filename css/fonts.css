@@ -2,7 +2,7 @@
 @import url("https://use.typekit.net/mmd8gch.css");
 
 .titels {
-    color: white;
+    color: #00FFAF;
     font-family: industry-inc-outline, sans-serif;
 }
 
@@ -13,4 +13,21 @@
 
 p{
     font-family: 'Roboto', sans-serif;
+    font-size: 15px;
 }
+
+  /*Blue glow*/
+  .glow_blue {
+    color: #fff;
+    -webkit-animation: glow_blue 1s ease-in-out infinite alternate;
+    -moz-animation: glow_blue 1s ease-in-out infinite alternate;
+    animation: glow_blue 1s ease-in-out infinite alternate;
+  }
+  @-webkit-keyframes glow_blue {
+      from {
+        text-shadow: 0 0 10px #dafff3, 0 0 20px #dafff3, 0 0 30px #00FFAF, 0 0 40px #00FFAF, 0 0 50px #00FFAF, 0 0 60px #00FFAF, 0 0 70px #00FFAF;
+      }
+      to {
+        text-shadow: 0 0 20px #dafff3, 0 0 30px #00FFAF, 0 0 40px #00FFAF, 0 0 50px #00FFAF, 0 0 60px #00FFAF, 0 0 70px #00FFAF, 0 0 80px #00FFAF;
+      }
+    }
