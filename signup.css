@@ -4,6 +4,7 @@ body {
     width: 414px;
     height: 896px;
     color: white;
+    margin: 0;
 }
 
 .logo img {
