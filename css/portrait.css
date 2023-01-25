@@ -1,0 +1,13 @@
+body {
+    text-align: center;
+    background-color: #001600;
+    color: white;
+}
+
+/*Logo klein van boven*/
+.logo img {
+    height: 50%;
+    width: 50%;
+    display: block;
+    margin: auto;
+}
