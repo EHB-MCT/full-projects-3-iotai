@@ -1,7 +1,3 @@
-body{
-    margin: auto;
-}
-
 #logoStartpagina{
     display: flex;
     justify-content: center;
@@ -12,7 +8,8 @@ body{
 
 .scaleAnimation {
     animation: scaling 2s alternate infinite ease-in;
-    width: 80%;
+    width: 100%;
+    vertical-align: middle;
   }
   
   @keyframes scaling {
