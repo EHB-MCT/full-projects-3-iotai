@@ -23,7 +23,7 @@ p{
     -moz-animation: glow_blue 1s ease-in-out infinite alternate;
     animation: glow_blue 1s ease-in-out infinite alternate;
   }
-  @-webkit-keyframes glow_blue {
+  @keyframes glow_blue {
       from {
         text-shadow: 0 0 10px #dafff3, 0 0 20px #dafff3, 0 0 30px #00FFAF, 0 0 40px #00FFAF, 0 0 50px #00FFAF, 0 0 60px #00FFAF, 0 0 70px #00FFAF;
       }
