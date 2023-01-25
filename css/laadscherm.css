@@ -12,7 +12,7 @@ body{
 
 .scaleAnimation {
     animation: scaling 2s alternate infinite ease-in;
-    width: 100%;
+    width: 80%;
   }
   
   @keyframes scaling {
