@@ -1,27 +1,30 @@
 body {
     text-align: center;
     background-color: #001600;
-    width: 414px;
-    height: 896px;
     color: white;
-    margin: 0;
 }
 
+/*Logo klein van boven*/
 .logo img {
-    height: 150px;
-    width: 150px;
+    height: 50%;
+    width: 50%;
+    display: block;
+    margin: auto;
 }
 
-
-.input {
-    width: 80%;
-    height: 20px;
+.portaitBody {
+    height: 250px;
 }
 
 .socialmedia {
     display: flex;
+    justify-content: space-around;
 }
 
-.spatie {
-    height: 450px;
+.input {
+    width: 70%;
+}
+
+.signup__form {
+    height: 80px;
 }

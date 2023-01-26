@@ -19,8 +19,18 @@ body {
 
 .socialmedia {
     display: flex;
+    justify-content: space-around;
 }
 
-.spatie {
-    height: 450px;
+
+.portaitBody {
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px
+}
+
+.portaitBody input,
+.portaitBody button {
+    width: 80%;
 }

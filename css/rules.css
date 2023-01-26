@@ -1,58 +1,77 @@
-.logo img {
-    height: 40%;
-    width: 40%;
-    display: block;
-    margin: auto auto 20px auto;
-}
-
-.rule_header,
-.rule_box{
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-content: center;
-    text-align: center;
-}
-
-.rule_counter{
-    margin-top: -5px;
-    margin-bottom: 50px;
+.rule_counter {
+    margin-top: -25px;
+    margin-bottom: 30px;
 }
 
 /* ↑↑↑ Header | Title & logo ↑↑↑ */
 
-.rule_box_column{
-    
+html,
+body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.swiper {
+    width: 100%;
+    height: 30%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #0016ff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*flex fixs*/
+.swiper-slide-header {
+    flex-direction: column;
 }
 
 /* ↓↓↓ Footer | buttons ↓↓↓ */
 
-.rule_footer{
+.rule_footer {
     width: 100%;
-    height: 120px;
+    height: 130px;
     padding: 1px;
     position: fixed;
     bottom: 0;
     text-align: center;
 }
 
-.rule_footer button{
+.rule_footer button {
     width: 80%;
     padding: 10px;
-    margin: 15px 0;
+    margin: 10px 0;
     border: 2px solid;
 }
 
-.rule_footer_next{  
-    color: #00FFAF;
-    background-color: #001600;
-    border: #00FFAF;
-    text-shadow: 0px 1px 10px #00FFAF;
-    box-shadow: 0px 0px 20px 5px #00FFAF;
-    font-size: 15px;
-}
-
-.rule_footer_skip{
+.rule_footer_skip {
     color: white;
     text-decoration: none;
 }
