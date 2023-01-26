@@ -9,7 +9,10 @@
 
 .profilePage_statsContainer{
     flex-flow: column;
-    margin-top: 40px;
+}
+
+.profilePage_imageContainer{
+    margin-bottom: 15%;
 }
 
 .avatar{
@@ -41,7 +44,7 @@
 
 .profilePage_statsContainer p{
     margin: .5%;
-    font-size: 150%;
+    font-size: 120%;
 }
 
 footer{
