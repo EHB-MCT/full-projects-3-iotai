@@ -21,6 +21,6 @@ body {
     display: flex;
 }
 
-.spatie {
-    height: 450px;
+.portaitBody {
+    height: 280px;
 }

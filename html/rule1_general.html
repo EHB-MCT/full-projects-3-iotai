@@ -8,6 +8,9 @@
         <link rel="stylesheet" href="../css/portrait.css" />
         <link rel="stylesheet" href="../css/__styleguide.css" />
         <link rel="stylesheet" href="../css/rules.css" />
+        <link rel="stylesheet" href="../css/aniamtions.css" />
+        <!-- Link Swiper's CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     </head>
     <body>
         <div class="rule_header">
@@ -15,26 +18,45 @@
                 <img src="../assets/evologo.png" />
             </div>
             <div rules_title>
-                <h1 class="titels glow_blue">Rules</h1>
+                <h1 class="titels glow_blue green">Rules</h1>
                 <p class="rule_counter ondertitels">Rule 1/6</p>
             </div>
         </div>
-        <div class="rule_box ondertitels">
-            <p>EvoMission is a game about trust and betrayal.</p>
-            <div class="rule_box_column">
-                <img src="../assets/icons/claw.png" />
-                <p>Predators</p>
-            </div>
-            <div class="rule_box_column">
-                <p>vs.</p>
-            </div>
-            <div class="rule_box_column">
-                <img src="../assets/icons/flask.png" />
-                <p>Scientists</p>
+
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <p>EvoMission is a game about trust and betrayal.</p>
+                    <div class="rule_box_column">
+                        <img src="../assets/icons/claw.png" />
+                        <p>Predators</p>
+                    </div>
+                    <div class="rule_box_column">
+                        <p>vs.</p>
+                    </div>
+                    <div class="rule_box_column">
+                        <img src="../assets/icons/flask.png" />
+                        <p>Scientists</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">Slide 2</div>
+                <div class="swiper-slide">Slide 3</div>
+                <div class="swiper-slide">Slide 4</div>
+                <div class="swiper-slide">Slide 5</div>
+                <div class="swiper-slide">Slide 6</div>
             </div>
         </div>
+
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+        <!-- Initialize Swiper -->
+        <script>
+            var swiper = new Swiper('.mySwiper', {});
+        </script>
+
         <div class="rule_footer">
-            <button class="rule_footer_next">Next rule</button>
+            <a href="./game.html"><button class="button-green">Next rule</button></a>
             <a class="rule_footer_skip ondertitels" href="#"><p>Skip rules</p></a>
         </div>
     </body>

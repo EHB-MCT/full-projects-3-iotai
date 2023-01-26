@@ -2,7 +2,7 @@ html {
     height: 100%;
 }
 
-body{
+body {
     text-align: center;
     background-color: #001600;
     color: white;
@@ -21,4 +21,3 @@ body{
     display: block;
     margin: auto;
     margin-bottom: 10%;
-}
