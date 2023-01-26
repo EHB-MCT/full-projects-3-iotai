@@ -1,4 +1,4 @@
-@import './__styleguide.css';
+@import '../css/__styleguide.css';
 
 body {
     background-color: var(--bg);
