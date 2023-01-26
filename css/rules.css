@@ -48,6 +48,11 @@ body {
     object-fit: cover;
 }
 
+/*flex fixs*/
+.swiper-slide-header {
+    flex-direction: column;
+}
+
 /* ↓↓↓ Footer | buttons ↓↓↓ */
 
 .rule_footer {
