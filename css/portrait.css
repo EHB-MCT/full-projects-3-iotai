@@ -11,6 +11,7 @@ body{
     margin: auto;
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
 /*Logo klein van boven*/
