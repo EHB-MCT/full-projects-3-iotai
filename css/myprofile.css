@@ -14,6 +14,9 @@ body {
 
 .portaitBody {
     height: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px
 }
 
 .input {
@@ -27,4 +30,9 @@ body {
 
 .login__form {
     height: 60px;
+}
+
+.portaitBody input,
+.portaitBody button {
+    width: 80%;
 }
