@@ -7,7 +7,7 @@ body {
 }
 
 main {
-    margin-top: 25%;
+    margin-top: 15%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -29,6 +29,15 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 25px;
+}
+
+.avatar-select #avatar-wrapper {
+    width: 100%;
+}
+
+.avatar-select #avatar {
+    width: 90px;
 }
 
 .form {
@@ -40,10 +49,11 @@ main {
 
 .form input[type='text'] {
     font-size: 1rem;
-    padding: 10px;
+    padding: 5px;
+    text-align: center;
 }
 
 .form button {
     font-size: 1rem;
-    padding: 10px;
+    padding: 5px;
 }

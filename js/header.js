@@ -13,7 +13,7 @@ function renderHeader() {
     const header = document.createElement('header');
     header.style.marginTop = '10px';
     header.style.position = 'relative';
-    header.style.height = '15vh';
+    header.style.height = '20vh';
 
     document.body.prepend(header);
 
