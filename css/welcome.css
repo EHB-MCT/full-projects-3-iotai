@@ -11,3 +11,11 @@ body {
     display: block;
     margin: auto;
 }
+
+.portaitBody {
+    height: 280px;
+}
+
+.socialmedia {
+    display: flex;
+}
