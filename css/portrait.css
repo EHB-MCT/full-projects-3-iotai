@@ -2,7 +2,7 @@ html {
     height: 100%;
 }
 
-body{
+body {
     text-align: center;
     background-color: #001600;
     color: white;
@@ -11,6 +11,7 @@ body{
     margin: auto;
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
 /*Logo klein van boven*/
