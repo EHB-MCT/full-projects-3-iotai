@@ -1,7 +1,16 @@
-body {
+html {
+    height: 100%;
+}
+
+body{
     text-align: center;
     background-color: #001600;
     color: white;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
 }
 
 /*Logo klein van boven*/
