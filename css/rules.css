@@ -1,12 +1,5 @@
-.logo img {
-    height: 40%;
-    width: 40%;
-    display: block;
-    margin: auto auto 20px auto;
-}
-
 .rule_header,
-.rule_box{
+.rule_box {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -14,45 +7,44 @@
     text-align: center;
 }
 
-.rule_counter{
+.rule_counter {
     margin-top: -5px;
     margin-bottom: 50px;
 }
 
 /* ↑↑↑ Header | Title & logo ↑↑↑ */
 
-.rule_box_column{
-    
+.rule_box_column {
 }
 
 /* ↓↓↓ Footer | buttons ↓↓↓ */
 
-.rule_footer{
+.rule_footer {
     width: 100%;
-    height: 120px;
+    height: 130px;
     padding: 1px;
     position: fixed;
     bottom: 0;
     text-align: center;
 }
 
-.rule_footer button{
+.rule_footer button {
     width: 80%;
     padding: 10px;
     margin: 15px 0;
     border: 2px solid;
 }
 
-.rule_footer_next{  
-    color: #00FFAF;
+.rule_footer_next {
+    color: #00ffaf;
     background-color: #001600;
-    border: #00FFAF;
-    text-shadow: 0px 1px 10px #00FFAF;
-    box-shadow: 0px 0px 20px 5px #00FFAF;
+    border: #00ffaf;
+    text-shadow: 0px 1px 10px #00ffaf;
+    box-shadow: 0px 0px 20px 5px #00ffaf;
     font-size: 15px;
 }
 
-.rule_footer_skip{
+.rule_footer_skip {
     color: white;
     text-decoration: none;
 }
