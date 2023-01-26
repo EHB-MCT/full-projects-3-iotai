@@ -14,8 +14,20 @@ body {
 
 .portaitBody {
     height: 280px;
+    display: flex;
+    flex-direction: column;
+}
+
+.portaitBody a {
+    margin: 10px 0px;
 }
 
 .socialmedia {
     display: flex;
+    justify-content: space-around;
+}
+
+.button-green {
+    height: 70px;
+    width: 60%;
 }
