@@ -1,7 +1,7 @@
 window.onload = (event) => {
-  var laadInterval = setInterval(call_back, 600000);
+  var laadInterval = setInterval(call_back, 6000);
   function call_back() {
-     document.location.href = "welcome.html";
+     document.location.href = "html/welcome.html";
      clearInterval(laadInterval);
   }
   };
