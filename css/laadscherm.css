@@ -1,3 +1,15 @@
+html {
+    height: 100%;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
 #logoStartpagina{
     display: flex;
     justify-content: center;
@@ -6,7 +18,7 @@
     align-items: center;
 }
 
-.scaleAnimation {
+.animatedLogo {
     animation: scaling 2s alternate infinite ease-in;
     width: 100%;
     vertical-align: middle;
