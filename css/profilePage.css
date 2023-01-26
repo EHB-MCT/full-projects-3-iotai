@@ -1,18 +1,28 @@
 .profilePage_statsContainer,
 .profilePage_imageContainer{
     display: flex;
-    flex-flow: column nowrap;
     justify-content: center;
     align-content: center;
     text-align: center;
+    margin: auto;
+    margin-top: 20px;
 }
 
-.profilePage_imageContainer img{
-    border-style: solid;
-    border-width: 5px;
-    border-radius: 50%;
-    margin: 50px;
-    border-color: #00FFAF;
+.profilePage_statsContainer{
+    flex-flow: column;
+}
+
+.avatar{
+    width: 40%;
+    height: 40%;
+}
+
+.arrow{
+    width: 10%;
+    height: 10%;
+    vertical-align: middle;
+    display: inline-block;
+    margin: auto;
 }
 
 .logo h1 {
