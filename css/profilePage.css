@@ -4,12 +4,12 @@
     justify-content: center;
     align-content: center;
     text-align: center;
-    margin-top: 20px;
     width: auto;
 }
 
 .profilePage_statsContainer{
     flex-flow: column;
+    margin-top: 40px;
 }
 
 .avatar{
@@ -39,12 +39,18 @@
     margin: 20px;
 }
 
+.profilePage_statsContainer p{
+    margin: .5%;
+    font-size: 150%;
+}
+
 footer{
     position: relative;
 }
 
 .footer-icons {
     height: 100%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     margin-left: 10%;
