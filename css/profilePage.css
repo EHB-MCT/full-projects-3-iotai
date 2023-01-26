@@ -11,9 +11,17 @@
     flex-flow: column;
 }
 
-.profilePage_imageContainer img{
+.avatar{
     width: 40%;
     height: 40%;
+}
+
+.arrow{
+    width: 10%;
+    height: 10%;
+    vertical-align: middle;
+    display: inline-block;
+    margin: auto;
 }
 
 .logo h1 {
