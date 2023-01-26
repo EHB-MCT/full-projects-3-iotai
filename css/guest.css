@@ -25,9 +25,12 @@ body {
 
 .portaitBody {
     height: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px
 }
 
-.guest__forum {
-    margin-top: 100px;
-
+.portaitBody input,
+.portaitBody button {
+    width: 80%;
 }
