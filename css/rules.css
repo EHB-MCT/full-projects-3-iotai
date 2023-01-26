@@ -1,11 +1,3 @@
-.rule_header{
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-content: center;
-    text-align: center;
-}
-
 .logo img {
     height: 40%;
     width: 40%;
@@ -13,9 +5,27 @@
     margin: auto auto 20px auto;
 }
 
+.rule_header,
+.rule_box{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
 .rule_counter{
     margin-top: -5px;
+    margin-bottom: 50px;
 }
+
+/* ↑↑↑ Header | Title & logo ↑↑↑ */
+
+.rule_box_column{
+    
+}
+
+/* ↓↓↓ Footer | buttons ↓↓↓ */
 
 .rule_footer{
     width: 100%;
