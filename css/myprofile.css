@@ -13,10 +13,18 @@ body {
 }
 
 .portaitBody {
-    height: 280px;
+    height: 240px;
+}
+
+.input {
+    width: 70%;
 }
 
 .socialmedia {
     display: flex;
     justify-content: space-around;
+}
+
+.login__form {
+    height: 60px;
 }
