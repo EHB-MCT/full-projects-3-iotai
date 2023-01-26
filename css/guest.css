@@ -19,7 +19,9 @@ body {
 
 .socialmedia {
     display: flex;
+    justify-content: space-around;
 }
+
 
 .portaitBody {
     height: 280px;
