@@ -4,12 +4,15 @@
     justify-content: center;
     align-content: center;
     text-align: center;
-    margin: auto;
-    margin-top: 20px;
+    width: auto;
 }
 
 .profilePage_statsContainer{
     flex-flow: column;
+}
+
+.profilePage_imageContainer{
+    margin-bottom: 15%;
 }
 
 .avatar{
@@ -38,3 +41,39 @@
     border-color: #00FFAF;
     margin: 20px;
 }
+
+.profilePage_statsContainer p{
+    margin: .5%;
+    font-size: 120%;
+}
+
+footer{
+    position: relative;
+}
+
+.footer-icons {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10%;
+    margin-right: 10%;
+    align-items: flex-end;
+  }
+  
+  .icon {
+    width: 25%;
+    text-align: center;
+  }
+  
+  .icon img {
+    max-width: 100%;
+  }
+  
+  footer{
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0; 
+    width: 100%;
+  }
