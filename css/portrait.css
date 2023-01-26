@@ -8,16 +8,16 @@ body {
     color: white;
     height: 100%;
     width: 100%;
-    margin: auto;
-    display: flex;
+    margin-left: auto;
+    margin-right: auto;
     justify-content: center;
     flex-direction: column;
 }
 
 /*Logo klein van boven*/
 .logo img {
-    height: 50%;
-    width: 50%;
+    height: 30%;
+    width: 30%;
     display: block;
     margin: auto;
-}
+    margin-bottom: 10%;
