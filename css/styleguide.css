@@ -51,7 +51,8 @@
     color: #f9d73b;
 }
 
-.titels {
+.titels,
+.titles {
     font-family: industry-inc-outline, sans-serif;
 }
 
@@ -62,6 +63,7 @@
     font-size: 1.38rem;
 }
 
+.ondertitels,
 .subtitles {
     color: white;
     font-family: 'Roboto', sans-serif;
