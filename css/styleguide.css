@@ -2,14 +2,22 @@
 @import url('https://use.typekit.net/mmd8gch.css');
 
 :root {
-    font-size: 18px;
+    font-size: 15px;
     --bg: #001600;
+}
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 .button-green {
     color: #00ffaf;
     background-color: #001600;
-    border: #00ffaf;
+    border: 2px solid #00ffaf;
     text-shadow: 0px 1px 10px #00ffaf;
     box-shadow: 0px 0px 20px 5px #00ffaf;
     font-size: 15px;
@@ -43,10 +51,19 @@
     color: #f9d73b;
 }
 
-.titels {
+.titels,
+.titles {
     font-family: industry-inc-outline, sans-serif;
 }
 
+.bold {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 1.38rem;
+}
+
+.ondertitels,
 .subtitles {
     color: white;
     font-family: 'Roboto', sans-serif;
