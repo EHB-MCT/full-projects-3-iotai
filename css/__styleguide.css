@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://use.typekit.net/mmd8gch.css');
+
+:root {
+    font-size: 18px;
+    --bg: #001600;
+}
+
+.button-green {
+    color: #00ffaf;
+    background-color: #001600;
+    border: #00ffaf;
+    text-shadow: 0px 1px 10px #00ffaf;
+    box-shadow: 0px 0px 20px 5px #00ffaf;
+    font-size: 15px;
+}
+
+.button-red {
+    color: #ff5758;
+    background-color: #001600;
+    border: #ff5758;
+    text-shadow: 0px 1px 10px #00ffaf;
+    box-shadow: 0px 0px 20px 5px #00ffaf;
+    font-size: 15px;
+}
+
+.button-yellow {
+    color: #f9d73b;
+    background-color: #001600;
+    border: #f9d73b;
+    text-shadow: 0px 1px 10px #00ffaf;
+    box-shadow: 0px 0px 20px 5px #00ffaf;
+    font-size: 15px;
+}
+
+.green {
+    color: #00ffaf;
+}
+.red {
+    color: #ff5758;
+}
+.yellow {
+    color: #f9d73b;
+}
+
+.titels {
+    font-family: industry-inc-outline, sans-serif;
+}
+
+.subtitles {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.83rem;
+}
