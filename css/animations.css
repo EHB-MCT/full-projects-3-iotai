@@ -1,31 +1,31 @@
-  /*Blue glow for text*/
-  .glow_blue {
+/*Blue glow for text*/
+.glow_blue {
     color: #fff;
     -webkit-animation: glow_blue 1s ease-in-out infinite alternate;
     -moz-animation: glow_blue 1s ease-in-out infinite alternate;
     animation: glow_blue 1s ease-in-out infinite alternate;
-  }
-  @keyframes glow_blue {
-      from {
-        text-shadow: 0 0 10px #dafff3, 0 0 20px #dafff3, 0 0 30px #00FFAF, 0 0 40px #00FFAF, 0 0 50px #00FFAF, 0 0 60px #00FFAF, 0 0 70px #00FFAF;
-      }
-      to {
-        text-shadow: 0 0 20px #dafff3, 0 0 30px #00FFAF, 0 0 40px #00FFAF, 0 0 50px #00FFAF, 0 0 60px #00FFAF, 0 0 70px #00FFAF, 0 0 80px #00FFAF;
-      }
+}
+@keyframes glow_blue {
+    from {
+        text-shadow: 0 0 10px #dafff3, 0 0 20px #dafff3, 0 0 30px #00ffaf, 0 0 40px #00ffaf, 0 0 50px #00ffaf, 0 0 60px #00ffaf, 0 0 70px #00ffaf;
     }
+    to {
+        text-shadow: 0 0 20px #dafff3, 0 0 30px #00ffaf, 0 0 40px #00ffaf, 0 0 50px #00ffaf, 0 0 60px #00ffaf, 0 0 70px #00ffaf, 0 0 80px #00ffaf;
+    }
+}
 
-    /*Red glow fo text*/
+/*Red glow fo text*/
 .glow_red {
     color: #fff;
     -webkit-animation: glow_red 1s ease-in-out infinite alternate;
     -moz-animation: glow_red 1s ease-in-out infinite alternate;
     animation: glow_red 1s ease-in-out infinite alternate;
-  }
-  @-webkit-keyframes glow_red {
-      from {
-        text-shadow: 0 0 10px #FFB4B6, 0 0 20px #FFB4B6, 0 0 30px #FF2434, 0 0 40px #FF2434, 0 0 50px #FF2434, 0 0 60px #FF2434, 0 0 70px #FF2434;
-      }
-      to {
-        text-shadow: 0 0 20px #FFB4B6, 0 0 30px #ff3333, 0 0 40px #FF0000, 0 0 50px #FF0000, 0 0 60px #FF0000, 0 0 70px #FF0000, 0 0 80px #FF0000;
-      }
+}
+@-webkit-keyframes glow_red {
+    from {
+        text-shadow: 0 0 10px #ffb4b6, 0 0 20px #ffb4b6, 0 0 30px #ff2434, 0 0 40px #ff2434, 0 0 50px #ff2434, 0 0 60px #ff2434, 0 0 70px #ff2434;
     }
+    to {
+        text-shadow: 0 0 20px #ffb4b6, 0 0 30px #ff3333, 0 0 40px #ff0000, 0 0 50px #ff0000, 0 0 60px #ff0000, 0 0 70px #ff0000, 0 0 80px #ff0000;
+    }
+}

@@ -4,27 +4,32 @@ body {
     color: white;
 }
 
-/*Logo klein van boven*/
-.logo img {
-    height: 50%;
-    width: 50%;
-    display: block;
-    margin: auto;
+main {
+    margin-top: 15%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.portaitBody {
-    height: 280px;
+.welcome {
+    font-size: 3rem;
+}
+
+.buttons {
+    height: auto;
     display: flex;
     flex-direction: column;
 }
 
-.portaitBody a {
+.buttons a {
     margin: 10px 0px;
 }
 
-.socialmedia {
+.links {
     display: flex;
     justify-content: space-around;
+    width: 100%;
 }
 
 .button-green {

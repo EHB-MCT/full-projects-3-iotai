@@ -1,6 +1,9 @@
 'use strict';
 
-window.onload = () => {
+import { renderNav, renderSocials } from './footer.js';
+
+window.onload = async () => {
+    renderNav();
     init();
     makeHomeActive();
 };
@@ -21,8 +24,9 @@ function renderName() {
     const name = document.querySelector('#name');
     fetch('https://iotai-backend.onrender.com/player/1', { method: 'GET' })
         .then((res) => res.json())
-        .then((data) => {
-            name.textContent = data[0].name;
+        .then((player) => {
+            document.querySelector('#avatar').src = `../assets/avatars/avatar-${player[0].avatar}.png`;
+            name.textContent = `Hello ${player[0].name}!`;
         });
 }
 
