@@ -18,13 +18,13 @@ body {
 
 .swiper {
     width: 100%;
-    height: 30%;
+    height: 60%;
 }
 
 .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #0016ff;
+    background: #001600;
 
     /* Center slide text vertically */
     display: -webkit-box;
@@ -51,6 +51,11 @@ body {
 /*flex fixs*/
 .swiper-slide-header {
     flex-direction: column;
+}
+
+.swiper-slide img {
+    width: 100px;
+    height: 100px;
 }
 
 /* ↓↓↓ Footer | buttons ↓↓↓ */
