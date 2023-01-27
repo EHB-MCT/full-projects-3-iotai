@@ -1,5 +1,5 @@
 .rule_counter {
-    margin-top: -25px;
+    margin-top: -15px;
     margin-bottom: 30px;
 }
 
@@ -56,6 +56,7 @@ body {
 .swiper-slide img {
     width: 100px;
     height: 100px;
+    margin: auto;
 }
 
 /* ↓↓↓ Footer | buttons ↓↓↓ */
