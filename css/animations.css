@@ -21,7 +21,7 @@
     -moz-animation: glow_red 1s ease-in-out infinite alternate;
     animation: glow_red 1s ease-in-out infinite alternate;
 }
-@-webkit-keyframes glow_red {
+@keyframes glow_red {
     from {
         text-shadow: 0 0 10px #ffb4b6, 0 0 20px #ffb4b6, 0 0 30px #ff2434, 0 0 40px #ff2434, 0 0 50px #ff2434, 0 0 60px #ff2434, 0 0 70px #ff2434;
     }
