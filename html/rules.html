@@ -8,9 +8,12 @@
         <link rel="stylesheet" href="../css/portrait.css" />
         <link rel="stylesheet" href="../css/styleguide.css" />
         <link rel="stylesheet" href="../css/rules.css" />
-        <link rel="stylesheet" href="../css/aniamtions.css" />
+        <link rel="stylesheet" href="../css/animations.css" />
+
         <!-- Link Swiper's CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js%22%3E</script>
+        <script src="../js/swiper.js"></script>
     </head>
     <body>
         <div class="rule_header">
@@ -95,16 +98,22 @@
             </div>
         </div>
 
+        <div class="swiper-pagination"></div>
+        
+        <div class="rule_footer">
+            <button class="button-green" id="next-button">Next rule</button>
+            <a class="rule_footer_skip ondertitels" href="./lobby.html"><p>Skip rules</p></a>
+        </div>
+        
         <!-- Swiper JS -->
         <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
         <!-- Initialize Swiper -->
         <script>
             var swiper = new Swiper('.mySwiper', {});
+            var nextButton = document.getElementById('next-button');
+            nextButton.addEventListener('click', function () {
+            swiper.slideNext();
+});
         </script>
-
-        <div class="rule_footer">
-            <a href="#"><button class="button-green">Next rule</button></a>
-            <a class="rule_footer_skip ondertitels" href="./lobby.html"><p>Skip rules</p></a>
-        </div>
     </body>
 </html>
