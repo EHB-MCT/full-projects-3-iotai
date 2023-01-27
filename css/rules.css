@@ -1,5 +1,5 @@
 .rule_counter {
-    margin-top: -25px;
+    margin-top: -5px;
     margin-bottom: 30px;
 }
 
@@ -17,14 +17,14 @@ body {
 }
 
 .swiper {
-    width: 100%;
-    height: 30%;
+    width: 90%;
+    height: 55%;
 }
 
 .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #0016ff;
+    background: #001600;
 
     /* Center slide text vertically */
     display: -webkit-box;
@@ -51,6 +51,16 @@ body {
 /*flex fixs*/
 .swiper-slide-header {
     flex-direction: column;
+}
+
+.swiper-slide img {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+}
+
+.rule_box_column {
+    flex-direction: row;
 }
 
 /* ↓↓↓ Footer | buttons ↓↓↓ */

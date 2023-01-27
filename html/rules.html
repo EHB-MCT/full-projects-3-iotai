@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>EvoMission</title>
+        <link rel="icon" href="../assets/evologo.png" type="images/x-icon" />
+        <link rel="stylesheet" href="../css/portrait.css" />
+        <link rel="stylesheet" href="../css/styleguide.css" />
+        <link rel="stylesheet" href="../css/rules.css" />
+        <link rel="stylesheet" href="../css/animations.css" />
+
+        <!-- Link Swiper's CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js%22%3E</script>
+        <script src="../js/swiper.js"></script>
+    </head>
+    <body>
+        <div class="rule_header">
+            <div class="logo">
+                <img src="../assets/evologo.png" />
+            </div>
+        </div>
+
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="swiper-slide-header">
+                        <div rules_title>
+                            <h1 class="titels glow_blue green">rules</h1>
+                            <p class="rule_counter ondertitels">Rule 1/6</p>
+                            <p>EvoMission is a game about trust and betrayal.</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <div>
+                                <img class="rule_icon" src="../assets/icons/claw.png" />
+                                <p class="red">Predators</p>
+                            </div>
+                            <p>vs.</p>
+                            <div>
+                                <img class="rule_icon" src="../assets/icons/flask.png" />
+                                <p class="green">Scientists</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div rules_title>
+                        <h1 class="titels glow_blue green">scientists</h1>
+                        <p class="rule_counter ondertitels">Rule 2/6</p>
+                        <p>The scientists need to complete their tasks as fast as possible. If all tasks are completed, they win the game.</p>
+                        <div class="rule_box_column">
+                            <img class="rule_icon" src="../assets/icons/flask.png" />
+                            <p class="green">Scientists</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div rules_title>
+                        <h1 class="titels glow_red red">predator</h1>
+                        <p class="rule_counter ondertitels">Rule 3/6</p>
+                        <p>The predators are the "bad guys", they need to eliminate the scientists before they are able to finish their tasks.</p>
+                        <img class="rule_icon" src="../assets/icons/claw.png" />
+                        <p class="red">Predators</p>
+                        <br />
+                        <p>The predators win when they are in the majority.</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div rules_title>
+                        <h1 class="titels glow_blue yellow">vests</h1>
+                        <p class="rule_counter ondertitels">Rule 4/6</p>
+                        <p>
+                            At the start of the game, everyone will be wearing a vest. When a scientist is eliminated by a predator, they will need to take off
+                            their vest and lay it down where they were eliminated.
+                        </p>
+                        <img class="rule_icon" src="../assets/icons/shirt-icon.png" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div rules_title>
+                        <h1 class="titels glow_red red">report</h1>
+                        <p class="rule_counter ondertitels">Rule 5/6</p>
+                        <p>If another scientist finds the vest, they can report the elimination by calling an emergency meeting.</p>
+                        <img class="rule_icon" src="../assets/icons/warning-icon.png" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div rules_title>
+                        <h1 class="titels glow_blue yellow">voting</h1>
+                        <p class="rule_counter ondertitels">Rule 6/6</p>
+                        <p>During the emergency meeting, the players need to vote for someone they think is a predator.</p>
+                        <img class="rule_icon" src="../assets/icons/cross-icon.png" />
+                        <p>The player with the most votes will be eliminated.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="swiper-pagination"></div>
+        
+        <div class="rule_footer">
+            <button class="button-green" id="next-button">Next rule</button>
+            <a class="rule_footer_skip ondertitels" href="./lobby.html"><p>Skip rules</p></a>
+        </div>
+        
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+        <!-- Initialize Swiper -->
+        <script>
+            var swiper = new Swiper('.mySwiper', {});
+            var nextButton = document.getElementById('next-button');
+            nextButton.addEventListener('click', function () {
+            swiper.slideNext();
+});
+        </script>
+    </body>
+</html>
