@@ -52,12 +52,12 @@ You can alter/view this project code by following the guide down below.
 
 This project is compatible with the following versions:
 
-- Node: v16.13.0+
-- Windows: Windows 10 Build 19044.2130
-- MySQL Workbench: Version 8.0.28 Source distribution
-- Postman: v10
-- Git: Version 2.28.0.windows.1
-- VSCode: Version 1.74.3+
+-   Node: v16.13.0+
+-   Windows: Windows 10 Build 19044.2130
+-   MySQL Workbench: Version 8.0.28 Source distribution
+-   Postman: v10
+-   Git: Version 2.28.0.windows.1
+-   VSCode: Version 1.74.3+
 
 ### **Cloning the repository using the command line**
 

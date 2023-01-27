@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Join Lobby</title>
+        <link rel="icon" href="../assets/evologo.png" type="images/x-icon" />
+        <link rel="stylesheet" href="../css/join.css" />
+        <script src="../js/info-btn.js" defer></script>
+        <script src="../js/join.js" type="module" defer></script>
+    </head>
+    <body>
+        <main>
+            <div class="content">
+                <div class="prompt">
+                    <p class="bold" id="name"></p>
+                </div>
+                <div class="avatar-select">
+                    <div class="arrow-left"><img src="../assets/icons/arrow-left.png" alt="arrow-left" /></div>
+                    <div class="avatar" id="avatar-wrapper"><img src="../assets/avatars/avatar-waterlily-g.png" alt="avatar waterlily" id="avatar" /></div>
+                    <div class="arrow-right"><img src="../assets/icons/arrow-right.png" alt="arrow-right" /></div>
+                </div>
+
+                <div class="form">
+                    <input type="text" name="game_pin" id="game_pin" placeholder="Enter game pin" autofocus />
+                    <button type="submit" class="button-green" id="join-lobby">Join Lobby</button>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

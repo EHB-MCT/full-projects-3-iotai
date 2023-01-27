@@ -1,0 +1,28 @@
+@import '../css/styleguide.css';
+
+body {
+    background-color: var(--bg);
+}
+
+#prompt {
+    width: 100%;
+    text-align: center;
+    margin: 20px 0px 30px;
+}
+
+.players-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#players {
+    text-align: center;
+    font-size: 1rem;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+}

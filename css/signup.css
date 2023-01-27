@@ -1,0 +1,30 @@
+body {
+    text-align: center;
+    background-color: #001600;
+    color: white;
+}
+
+/*Logo klein van boven*/
+.logo img {
+    height: 50%;
+    width: 50%;
+    display: block;
+    margin: auto;
+}
+
+.portaitBody {
+    height: 250px;
+}
+
+.socialmedia {
+    display: flex;
+    justify-content: space-around;
+}
+
+.input {
+    width: 70%;
+}
+
+.signup__form {
+    height: 80px;
+}

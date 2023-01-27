@@ -1,0 +1,35 @@
+body {
+    text-align: center;
+    background-color: #001600;
+    color: white;
+}
+
+main {
+    margin-top: 15%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.welcome {
+    margin-bottom: 5%;
+    font-size: 3rem;
+}
+
+.buttons {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.buttons .buttons a {
+    margin: 10px 0px;
+}
+
+.button {
+    height: 70px;
+    width: 60%;
+    font-size: 1.5rem;
+}
