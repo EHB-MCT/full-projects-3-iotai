@@ -26,7 +26,7 @@ function logIn(creds) {
         email: creds[0],
         password: creds[1],
     };
-    fetch('http://localhost:1337/login', {
+    fetch('https://iotai-backend.onrender.com/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
