@@ -18,8 +18,14 @@ async function renderRole() {
         .then((res) => res.json())
         .then((role) => {
             console.log(role);
-            if (role[0].id == 2) roleTitle.classList.add('red');
-            else if (role[0].id == 1) roleTitle.classList.add('green');
+            if (role[0].id == 2){
+                roleTitle.classList.add('red');
+                roleTitle.classList.add('glow_red');
+            } 
+            else if (role[0].id == 1){
+                roleTitle.classList.add('green');
+                roleTitle.classList.add('glow_blue');
+            } 
             roleTitle.textContent = `YOU ARE A ${role[0].name}`;
             roleDescription.textContent = role[0].description;
         });
