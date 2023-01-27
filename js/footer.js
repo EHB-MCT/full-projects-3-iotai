@@ -38,7 +38,7 @@ function renderNav() {
 }
 
 function renderSocials() {
-    const images = createImages('socials', 75, ['iotai-icon-fb', 'iotai-icon-ig', 'iotai-icon-tt', 'iotai-icon-yt']);
+    const images = createImages('socials', 60, ['iotai-icon-fb', 'iotai-icon-ig', 'iotai-icon-tt', 'iotai-icon-yt']);
     const footer = document.querySelector('footer');
     images.forEach((image) => {
         footer.append(image);

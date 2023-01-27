@@ -19,3 +19,5 @@ function renderHeader() {
 
     header.append(logoElement);
 }
+
+export { renderHeader };
