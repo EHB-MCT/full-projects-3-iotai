@@ -1,6 +1,7 @@
 "use strict";
 
 import * as cookie from './cookie.js';
+import { renderHeader } from './header.js';
 
 import {
     renderSocials
