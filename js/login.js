@@ -15,7 +15,6 @@ function init() {
         e.preventDefault();
         const nameOrEmail = document.querySelector('#input-nameOrEmail').value;
         const password = document.querySelector('#input-password').value;
-        console.log(nameOrEmail, password);
         logIn([nameOrEmail, password]);
     });
 }
