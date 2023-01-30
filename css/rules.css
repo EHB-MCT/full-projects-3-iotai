@@ -14,6 +14,9 @@ body {
 body {
     margin: 0;
     padding: 0;
+    text-align: center;
+    background-color: #001600;
+    color: white;
 }
 
 .swiper {
