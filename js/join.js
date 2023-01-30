@@ -1,13 +1,8 @@
 'use strict';
 
 import * as cookie from './cookie.js';
-import {
-    renderNav,
-    renderSocials
-} from './footer.js';
-import {
-    renderHeader
-} from './header.js';
+import { renderNav, renderSocials } from './footer.js';
+import { renderHeader } from './header.js';
 
 window.onload = async () => {
     renderNav();
@@ -39,8 +34,8 @@ function renderName() {
     const nameField = document.querySelector('#name');
     const playerId = cookie.getCookie('player_id');
     fetch(`https://iotai-backend.onrender.com/player/${playerId}`, {
-            method: 'GET'
-        })
+        method: 'GET',
+    })
         .then((res) => res.json())
         .then((player) => {
             console.log(player);
@@ -56,22 +51,23 @@ function initJoinLobby() {
         const playerId = cookie.getCookie('player_id');
 
         if (!ic) return alert('No invite code');
-        fetch('https://iotai-backend.onrender.com/lobby/${ic}/join', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    player_id: playerId
-                }),
-            })
+        fetch(`https://iotai-backend.onrender.com/lobby/${ic}/join`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                player_id: playerId,
+            }),
+        })
             .then((res) => res.json())
-            .then((lobby) => {
+            .then(async (lobby) => {
+                console.log(lobby);
                 const timeUntillCookieExpiresInSeconds = 60 * 60 * 3; // Set to 3hrs
-                cookie.setCookie('lobby_invite_code', ic, {
-                    'max-age': timeUntillCookieExpiresInSeconds
+                await cookie.setCookie('lobby_invite_code', ic, {
+                    'max-age': timeUntillCookieExpiresInSeconds,
                 });
-                window.location = `${window.location.origin}/html/lobby.html`;
+                window.location = window.location.href.substring(0, window.location.href.lastIndexOf('/')) + '/lobby.html';
             });
     });
 }

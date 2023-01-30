@@ -39,6 +39,6 @@ function logIn(creds) {
             const timeUntillCookieExpiresInSeconds = 60 * 60 * 24 * 7; // Set to expire in 1 week
             cookie.setCookie('player_id', `${data.id}`, { 'max-age': timeUntillCookieExpiresInSeconds });
             cookie.setCookie('player_name', `${data.name}`, { 'max-age': timeUntillCookieExpiresInSeconds });
-            window.location = `${window.location.origin}/html/join.html`;
+            window.location = window.location.href.substring(0, window.location.href.lastIndexOf('/')) + '/join.html';
         });
 }
