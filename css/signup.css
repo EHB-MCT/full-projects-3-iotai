@@ -4,16 +4,25 @@ body {
     color: white;
 }
 
-/*Logo klein van boven*/
-.logo img {
-    height: 50%;
-    width: 50%;
-    display: block;
-    margin: auto;
+main {
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
 }
 
-.portaitBody {
-    height: 250px;
+.form {
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 .socialmedia {
@@ -21,10 +30,12 @@ body {
     justify-content: space-around;
 }
 
-.input {
-    width: 70%;
+.login__form {
+    height: 60px;
 }
 
-.signup__form {
-    height: 80px;
+.form input,
+.form button {
+    width: 80%;
+    padding: 10px;
 }
