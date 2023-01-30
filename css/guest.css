@@ -34,3 +34,7 @@ body {
 .portaitBody button {
     width: 80%;
 }
+
+.title-guest {
+    font-size: 3rem;
+}
