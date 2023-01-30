@@ -1,3 +1,16 @@
+body {
+    text-align: center;
+    background-color: #001600;
+    color: white;
+}
+
+main {
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
 .profilePage_statsContainer,
 .profilePage_imageContainer{
     display: flex;
@@ -5,10 +18,6 @@
     align-content: center;
     text-align: center;
     width: auto;
-}
-
-.profilePage_imageContainer{
-    margin-bottom: 15%;
 }
 
 .avatar{
@@ -36,20 +45,11 @@
     border-style: solid;
     border-width: 2px;
     border-color: #00FFAF;
-    margin: 20px;
     padding: 20px;
+    margin: 0px 20px;
 }
 
 .profilePage_statsContainer p{
     margin: .5%;
     font-size: 120%;
 }
-  
-  .icon {
-    width: 25%;
-    text-align: center;
-  }
-  
-  .icon img {
-    max-width: 100%;
-  }
