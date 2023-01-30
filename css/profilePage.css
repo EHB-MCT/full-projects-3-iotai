@@ -11,8 +11,31 @@ main {
     gap: 50px;
 }
 
+.avatar{
+    width: 40%;
+    height: 40%;
+}
+
+.avatar-select {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    gap: 25px;
+    width: 80%;
+}
+
+.avatar-select #avatar-wrapper {
+    width: 100%;
+}
+
+.avatar-select #avatar {
+    width: 90px;
+}
+
 .profilePage_statsContainer,
 .profilePage_imageContainer{
+    width: 80%;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -52,4 +75,8 @@ main {
 .profilePage_statsContainer p{
     margin: .5%;
     font-size: 100%;
+}
+
+.profilePage_imageContainer{
+    gap: 25px;
 }
