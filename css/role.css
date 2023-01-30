@@ -1,3 +1,10 @@
+@media only screen and (orientation:portrait) {
+    body {
+        height: 100vw;
+        transform: rotate(90deg);
+    }
+}
+
 body {
     background-color: var(--bg);
     height: 100vh;
@@ -27,10 +34,12 @@ body {
     -moz-animation: glow_red 1s ease-in-out infinite alternate;
     animation: glow_red 1s ease-in-out infinite alternate;
 }
+
 @-webkit-keyframes glow_red {
     from {
         text-shadow: 0 0 10px #ffb4b6, 0 0 20px #ffb4b6, 0 0 30px #ff2434, 0 0 40px #ff2434, 0 0 50px #ff2434, 0 0 60px #ff2434, 0 0 70px #ff2434;
     }
+
     to {
         text-shadow: 0 0 20px #ffb4b6, 0 0 30px #ff3333, 0 0 40px #ff0000, 0 0 50px #ff0000, 0 0 60px #ff0000, 0 0 70px #ff0000, 0 0 80px #ff0000;
     }
@@ -43,10 +52,12 @@ body {
     -moz-animation: glow_blue 1s ease-in-out infinite alternate;
     animation: glow_blue 1s ease-in-out infinite alternate;
 }
+
 @-webkit-keyframes glow_blue {
     from {
         text-shadow: 0 0 10px #dafff3, 0 0 20px #dafff3, 0 0 30px #00ffaf, 0 0 40px #00ffaf, 0 0 50px #00ffaf, 0 0 60px #00ffaf, 0 0 70px #00ffaf;
     }
+
     to {
         text-shadow: 0 0 20px #dafff3, 0 0 30px #00ffaf, 0 0 40px #00ffaf, 0 0 50px #00ffaf, 0 0 60px #00ffaf, 0 0 70px #00ffaf, 0 0 80px #00ffaf;
     }
