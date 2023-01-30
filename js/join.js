@@ -33,9 +33,12 @@ function init() {
 function renderName() {
     const nameField = document.querySelector('#name');
     const playerId = cookie.getCookie('player_id');
-    fetch(`https://iotai-backend.onrender.com/player/${playerId}`, { method: 'GET' })
+    fetch(`https://iotai-backend.onrender.com/player/${playerId}`, {
+        method: 'GET',
+    })
         .then((res) => res.json())
         .then((player) => {
+            console.log(player);
             document.querySelector('#avatar').src = `../assets/avatars/avatar-${player[0].avatar}.png`;
             nameField.textContent = `Hello ${player[0].name}!`;
         });
@@ -50,14 +53,21 @@ function initJoinLobby() {
         if (!ic) return alert('No invite code');
         fetch(`https://iotai-backend.onrender.com/lobby/${ic}/join`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ player_id: playerId }),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                player_id: playerId,
+            }),
         })
             .then((res) => res.json())
-            .then((lobby) => {
+            .then(async (lobby) => {
+                console.log(lobby);
                 const timeUntillCookieExpiresInSeconds = 60 * 60 * 3; // Set to 3hrs
-                cookie.setCookie('lobby_invite_code', ic, { 'max-age': timeUntillCookieExpiresInSeconds });
-                window.location = `${window.location.origin}/html/lobby.html`;
+                await cookie.setCookie('lobby_invite_code', ic, {
+                    'max-age': timeUntillCookieExpiresInSeconds,
+                });
+                window.location = window.location.href.substring(0, window.location.href.lastIndexOf('/')) + '/lobby.html';
             });
     });
 }

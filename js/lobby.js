@@ -9,7 +9,8 @@ window.onload = () => {
 
 setInterval(() => {
     checkIfLobbyHasStarted();
-}, 5000);
+    renderLobby();
+}, 2000);
 
 async function checkIfLobbyHasStarted() {
     const ic = cookie.getCookie('lobby_invite_code');
@@ -17,7 +18,7 @@ async function checkIfLobbyHasStarted() {
         .then((res) => res.json())
         .then((lobby) => {
             // redirect if started
-            if (lobby.started) window.location = `${window.location.origin}/html/role.html`;
+            if (lobby.started) window.location = window.location.href.substring(0, window.location.href.lastIndexOf('/')) + '/role.html';
         });
 }
 

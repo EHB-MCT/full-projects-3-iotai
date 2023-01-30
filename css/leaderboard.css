@@ -1,0 +1,35 @@
+.leaderboard-box {
+    border: #00ffaf;
+    border-style: solid;
+    border-width: 2px;
+    width: 60%;
+    margin: auto;
+    padding: 5px;
+    margin-top: 15px;
+}
+
+.leaderboard-player p {
+    padding: 5px auto;
+}
+
+.leaderboard-name {
+    margin: 10px 0 5px 30%;
+    flex-direction: row;
+    flex: auto;
+    display: flex;
+    width: auto;
+}
+
+.leaderboard-score {
+    float: right;
+    text-align: right;
+    margin-right: 25%;
+    margin-top: -20px;
+}
+
+.first-icon {
+    width: 15px;
+    height: 15px;
+    margin-left: -10%;
+    margin-right: 8px;
+}
