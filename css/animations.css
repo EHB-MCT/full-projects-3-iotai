@@ -1,6 +1,5 @@
 /*Blue glow for text*/
 .glow_blue {
-    color: #fff;
     -webkit-animation: glow_blue 1s ease-in-out infinite alternate;
     -moz-animation: glow_blue 1s ease-in-out infinite alternate;
     animation: glow_blue 1s ease-in-out infinite alternate;
@@ -16,7 +15,6 @@
 
 /*Red glow fo text*/
 .glow_red {
-    color: #fff;
     -webkit-animation: glow_red 1s ease-in-out infinite alternate;
     -moz-animation: glow_red 1s ease-in-out infinite alternate;
     animation: glow_red 1s ease-in-out infinite alternate;
