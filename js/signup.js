@@ -2,7 +2,16 @@
 
 import * as cookie from './cookie.js';
 
+import {
+    renderSocials
+} from './footer.js';
+
 window.onload = () => {
+    renderSocials();
+    initCreatePlayer();
+};
+
+function initCreatePlayer() {
     const submitButton = document.querySelector("#submit");
     submitButton.addEventListener('click', (e) => {
         e.preventDefault();
@@ -26,16 +35,14 @@ window.onload = () => {
                 console.log(data);
                 // Store in cookie
                 const timeUntillCookieExpiresInSeconds = 60 * 60 * 24 * 7; // Set to expire in 1 week
-                cookie.setCookie('player_id', `${data.registered_player.id}`, {
+                cookie.setCookie('player_id', `${data.player.id}`, {
                     'max-age': timeUntillCookieExpiresInSeconds
                 });
-                cookie.setCookie('player_name', `${data.registered_player.name}`, {
+                cookie.setCookie('player_name', `${data.player.name}`, {
                     'max-age': timeUntillCookieExpiresInSeconds
                 });
-                // window.location = `${window.location.origin}/html/join.html`;
+                window.location = `${window.location.origin}/html/join.html`;
             }
         });
     });
-
-
-};
+}

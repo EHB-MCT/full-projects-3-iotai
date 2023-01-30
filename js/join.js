@@ -56,7 +56,7 @@ function initJoinLobby() {
         const playerId = cookie.getCookie('player_id');
 
         if (!ic) return alert('No invite code');
-        fetch(`https://iotai-backend.onrender.com/lobby/${ic}/join`, {
+        fetch('https://iotai-backend.onrender.com/lobby/${ic}/join', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
