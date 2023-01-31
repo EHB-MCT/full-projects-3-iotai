@@ -8,6 +8,7 @@ import { renderHeader } from './header.js';
 window.onload = async () => {
     renderNav();
     makeLeaderboardActive();
+    renderLeaderboard();
 };
 
 function makeLeaderboardActive() {
@@ -19,11 +20,12 @@ function makeLeaderboardActive() {
 
 function renderLeaderboard() {
     const query = 'SELECT * FROM players ORDER BY wins DESC LIMIT 10';
-    fetch(`https://iotai-backend.onrender.com/player/${playerId}`, {
-            method: 'GET'
+    fetch("https://iotai-backend.onrender.com/players?orderby=wins&limit=10")
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
         })
-        .then((res) => res.json())
-        .then((player) => {
-
+        .catch(error => {
+          console.error("Error fetching data:", error);
         });
 }

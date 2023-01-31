@@ -37,16 +37,13 @@ function renderStats() {
     const winsField = document.querySelector('#wins');
     const playedGamesField = document.querySelector('#playedGames');
     const playerId = cookie.getCookie('player_id');
-    fetch(`https://iotai-backend.onrender.com/player/${playerId}`, {
-            method: 'GET'
+
+    fetch("https://iotai-backend.onrender.com/players?orderby=wins&limit=10")
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
         })
-        .then((res) => res.json())
-        .then((player) => {
-            console.log(player);
-            document.querySelector('#avatar').src = `../assets/avatars/avatar-${player[0].avatar}.png`;
-            nameField.textContent = `${player[0].name}`;
-            emailField.textContent = `${player[0].email}`;
-            winsField.textContent = `${player[0].wins} games won`;
-            playedGamesField.textContent = `${player[0].played_games} games played`;
+        .catch(error => {
+          console.error("Error fetching data:", error);
         });
 }
