@@ -69,8 +69,17 @@
                 </div>
             </div>
 
+            <div id="meetingPopup" style="display: none">
+                <div class="popup-content">
+                    <img class="closeMeeting" src="/assets/icons/cross-icon.png" height="30px" />
+                    <p class="task-text">EMERGENCY</p>
+                    <button class="popup-button glow_blue green">Scan QR code</button>
+                </div>
+            </div>
+
             <!--script for popup-->
             <script>
+                //Tasks
                 const popupBtns = document.querySelectorAll('.popupBtn');
                 const popup = document.getElementById('popup');
                 const close = document.getElementsByClassName('close')[0];
@@ -84,6 +93,17 @@
                 close.onclick = function () {
                 popup.style.display = 'none';
                 };
+
+                //Meeting button
+
+                const meetingBtn = document.querySelectorAll('.meeting-button');
+                const meetingPopup = document.getElementById('meetingPopup');
+                
+                meetingBtn.onclick = function () {
+                    console.log("clicked on meeting button");
+                    meetingPopup.style.display = 'block';
+                };
+
             </script>
         </main>
     </body>
