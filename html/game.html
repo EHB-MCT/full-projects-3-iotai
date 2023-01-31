@@ -37,17 +37,17 @@
                 <div class="map">
                     <div class="missions">
                         <div id="mission1">
-                            <button id="popupBtn">
+                            <button class="popupBtn">
                                 <img src="../assets/icons/pin_1.png" alt="mission 1" />
                             </button>
                         </div>
                         <div id="mission2">
-                            <button id="popupBtn">
+                            <button class="popupBtn">
                                 <img src="../assets/icons/pin_2.png" alt="mission 2" />
                             </button>
                         </div>
                         <div id="mission3">
-                            <button id="popupBtn">
+                            <button class="popupBtn">
                                 <img src="../assets/icons/pin_3.png" alt="mission 3" />
                             </button>
                         </div>
@@ -71,16 +71,18 @@
 
             <!--script for popup-->
             <script>
-                const popupBtn = document.getElementById('popupBtn');
+                const popupBtns = document.querySelectorAll('.popupBtn');
                 const popup = document.getElementById('popup');
                 const close = document.getElementsByClassName('close')[0];
 
-                popupBtn.onclick = function () {
+                popupBtns.forEach(function (btn) {
+                btn.onclick = function () {
                     popup.style.display = 'block';
                 };
+                });
 
                 close.onclick = function () {
-                    popup.style.display = 'none';
+                popup.style.display = 'none';
                 };
             </script>
         </main>
