@@ -36,6 +36,9 @@ function renderLeaderboard() {
             console.log(players);
             let playersHtml = "";
             players.forEach(player => {
+            if(players.indexOf(player) >= 9){
+                return
+            }
               playersHtml += `
                 <div class="leaderboard-player"><p class="leaderboard-name">`;
               if(players.indexOf(player) == 0){
