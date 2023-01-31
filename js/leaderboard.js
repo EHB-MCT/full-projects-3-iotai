@@ -16,3 +16,13 @@ function makeLeaderboardActive() {
     profile.width = profile.width * 1.5;
     profile.height = profile.height * 1.5;
 }
+
+function renderLeaderboard() {
+    fetch(`https://iotai-backend.onrender.com/player/${playerId}`, {
+            method: 'GET'
+        })
+        .then((res) => res.json())
+        .then((player) => {
+
+        });
+}
