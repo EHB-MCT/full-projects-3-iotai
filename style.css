@@ -74,6 +74,11 @@ main {
     left: 20%;
 }
 
+.missions button{
+    background-color: transparent;
+    border: none;
+}
+
 .magnification-glass {
     position: absolute;
     bottom: 0;
