@@ -10,7 +10,6 @@ main {
     flex-direction: column;
 }
 
-
 .leaderboard-box {
     border: #00ffaf;
     border-style: solid;
@@ -26,7 +25,7 @@ main {
 }
 
 .leaderboard-name {
-    margin: 10px 0 5px 30%;
+    margin: 10px 0 5px 18%;
     flex-direction: row;
     flex: auto;
     display: flex;
@@ -43,6 +42,6 @@ main {
 .first-icon {
     width: 15px;
     height: 15px;
-    margin-left: -10%;
+    margin-left: -8%;
     margin-right: 8px;
 }
