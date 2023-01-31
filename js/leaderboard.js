@@ -34,7 +34,18 @@ function renderLeaderboard() {
               });
             });
             console.log(players);
-        })
+            let playersHtml = "";
+            players.forEach(player => {
+              playersHtml += `
+                <div class="leaderboard-player">
+                  <p class="leaderboard-name">${player.name}</p>
+                  <p class="leaderboard-score">${player.wins}</p>
+                </div>
+              `;
+            });
+            console.log(playersHtml);
+            document.querySelector("#leaderboard").innerHTML = playersHtml;
+          })
         .catch(error => {
           console.error("Error fetching data:", error);
         });
