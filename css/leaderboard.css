@@ -15,7 +15,7 @@ main {
     border: #00ffaf;
     border-style: solid;
     border-width: 2px;
-    width: 60%;
+    width: 80%;
     margin: auto;
     padding: 5px;
     margin-top: 15px;
@@ -36,7 +36,7 @@ main {
 .leaderboard-score {
     float: right;
     text-align: right;
-    margin-right: 25%;
+    margin-right: 12%;
     margin-top: -20px;
 }
 

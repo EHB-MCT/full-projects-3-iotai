@@ -19,11 +19,21 @@ function makeLeaderboardActive() {
 }
 
 function renderLeaderboard() {
-    const query = 'SELECT * FROM players ORDER BY wins DESC LIMIT 10';
-    fetch("https://iotai-backend.onrender.com/players?orderby=wins&limit=10")
+    const query = "SELECT * FROM players ORDER BY wins DESC LIMIT 1";
+    fetch(`https://iotai-backend.onrender.com/players?query=${query}`)
         .then(response => response.json())
         .then(data => {
-          console.log(data);
+            console.log(data);
+            data.sort((a, b) => b.wins - a.wins);
+            console.log(data);
+            let players = [];
+            data.forEach(record => {
+              players.push({
+                name: record.name,
+                wins: record.wins
+              });
+            });
+            console.log(players);
         })
         .catch(error => {
           console.error("Error fetching data:", error);
