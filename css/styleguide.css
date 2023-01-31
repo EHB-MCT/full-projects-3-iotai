@@ -35,18 +35,20 @@
 .button-yellow {
     color: #f9d73b;
     background-color: #001600;
-    border: #f9d73b;
-    text-shadow: 0px 1px 10px #00ffaf;
-    box-shadow: 0px 0px 20px 5px #00ffaf;
+    border: 2px solid #f9d73b;
+    text-shadow: 0px 1px 10px #f9d73b;
+    box-shadow: 0px 0px 20px 5px #f9d73b;
     font-size: 15px;
 }
 
 .green {
     color: #00ffaf;
 }
+
 .red {
     color: #ff5758;
 }
+
 .yellow {
     color: #f9d73b;
 }

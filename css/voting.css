@@ -1,0 +1,68 @@
+@import '../css/styleguide.css';
+
+body {
+    background-color: var(--bg);
+}
+
+#prompt {
+    width: 100%;
+    text-align: center;
+    margin: 20px 0px 30px;
+}
+
+
+.voting-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: blue;
+}
+
+.rule_footer button {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid;
+}
+
+#voting-system {
+    display: flex;
+    text-align: center;
+    background-color: red;
+}
+
+p {
+    width: 120%;
+    color: white;
+}
+
+.av-vote {
+    display: flex;
+    align-items: center;
+}
+
+.voting-container {
+    display: flex;
+    text-align: center;
+    margin: 0 15px;
+    border-color: yellow;
+    border-style: dashed;
+    flex-direction: column;
+}
+
+#avatar-img {
+    width: 32px;
+    height: auto;
+    margin: 0 20px 0 0;
+}
+
+#btn-vote {
+    padding: 3px 15px;
+}
+
+#btn-voted {
+    padding: 3px 15px;
+}
+
+
+
