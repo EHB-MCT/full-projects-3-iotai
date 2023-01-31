@@ -117,3 +117,5 @@ function browseAvatars(direction) {
         }),
     });
 }
+
+export { renderName, browseAvatars };

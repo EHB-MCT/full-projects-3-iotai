@@ -1,18 +1,46 @@
+body {
+    text-align: center;
+    background-color: #001600;
+    color: white;
+}
+
+main {
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.avatar{
+    width: 40%;
+    height: 40%;
+}
+
+.avatar-select {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    gap: 25px;
+    width: 80%;
+}
+
+.avatar-select #avatar-wrapper {
+    width: 100%;
+}
+
+.avatar-select #avatar {
+    width: 90px;
+}
+
 .profilePage_statsContainer,
 .profilePage_imageContainer{
+    width: 80%;
     display: flex;
     justify-content: center;
     align-content: center;
     text-align: center;
     width: auto;
-}
-
-.profilePage_statsContainer{
-    flex-flow: column;
-}
-
-.profilePage_imageContainer{
-    margin-bottom: 15%;
 }
 
 .avatar{
@@ -36,46 +64,19 @@
 }
 
 .profilePage_statsContainer{
+    flex-flow: column;
     border-style: solid;
     border-width: 2px;
     border-color: #00FFAF;
-    margin: 20px;
     padding: 20px;
+    margin: 0px 20px;
 }
 
 .profilePage_statsContainer p{
     margin: .5%;
-    font-size: 120%;
+    font-size: 100%;
 }
 
-footer{
-    position: relative;
-    padding-bottom: 20px;
+.profilePage_imageContainer{
+    gap: 25px;
 }
-
-.footer-icons {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-left: 10%;
-    margin-right: 10%;
-    align-items: flex-end;
-  }
-  
-  .icon {
-    width: 25%;
-    text-align: center;
-  }
-  
-  .icon img {
-    max-width: 100%;
-  }
-  
-  footer{
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    bottom: 0; 
-    width: 100%;
-  }
