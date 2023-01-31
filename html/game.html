@@ -70,10 +70,9 @@
             </div>
 
             <div id="meetingPopup" style="display: none">
-                <div class="popup-content">
-                    <img class="closeMeeting" src="/assets/icons/cross-icon.png" height="30px" />
-                    <p class="task-text">EMERGENCY</p>
-                    <button class="popup-button glow_blue green">Scan QR code</button>
+                <div class="meetingPopup-content">
+                    <h1 class="emergency titles glow_red red title-log-in">EMERGENCY</h1>
+                    <p>Go to the main hall</p>
                 </div>
             </div>
 
@@ -96,13 +95,17 @@
 
                 //Meeting button
 
-                const meetingBtn = document.querySelectorAll('.meeting-button');
+                const meetingBtn = document.querySelector('.meeting-button');
                 const meetingPopup = document.getElementById('meetingPopup');
-                
-                meetingBtn.onclick = function () {
+
+                meetingBtn.addEventListener('click', function () {
                     console.log("clicked on meeting button");
                     meetingPopup.style.display = 'block';
-                };
+
+                    setTimeout(function () {
+                        meetingPopup.style.display = 'none';
+                    }, 10000);
+                });
 
             </script>
         </main>
