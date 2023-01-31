@@ -1,0 +1,19 @@
+.meeting-button {
+    background-color: #001600;
+    border-color: #ff0000;
+    padding: 5px;
+    display: flex;
+    flex-flow: wrap;
+}
+
+.meeting-button p {
+    padding: 8px;
+}
+
+.warning_icon {
+    width: 35px;
+}
+
+.task-number {
+    margin: 5px;
+}
