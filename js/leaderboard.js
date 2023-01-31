@@ -37,8 +37,12 @@ function renderLeaderboard() {
             let playersHtml = "";
             players.forEach(player => {
               playersHtml += `
-                <div class="leaderboard-player">
-                  <p class="leaderboard-name">${player.name}</p>
+                <div class="leaderboard-player"><p class="leaderboard-name">`;
+              if(players.indexOf(player) == 0){
+                playersHtml += `<img class="first-icon" src="/assets/icons/trophy.png"/>`
+              }
+              playersHtml+=
+                  `${player.name}</p>
                   <p class="leaderboard-score">${player.wins}</p>
                 </div>
               `;
