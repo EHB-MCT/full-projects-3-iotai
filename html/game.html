@@ -37,24 +37,52 @@
                 <div class="map">
                     <div class="missions">
                         <div id="mission1">
-                            <img src="../assets/icons/pin_1.png" alt="mission 1" />
+                            <button id="popupBtn">
+                                <img src="../assets/icons/pin_1.png" alt="mission 1" />
+                            </button>
                         </div>
                         <div id="mission2">
-                            <img src="../assets/icons/pin_2.png" alt="mission 2" />
+                            <button id="popupBtn">
+                                <img src="../assets/icons/pin_2.png" alt="mission 2" />
+                            </button>
                         </div>
                         <div id="mission3">
-                            <img src="../assets/icons/pin_3.png" alt="mission 3" />
+                            <button id="popupBtn">
+                                <img src="../assets/icons/pin_3.png" alt="mission 3" />
+                            </button>
                         </div>
                     </div>
                     <div class="room">
                         <img src="../assets/MNW_plattegrond3.png" alt="gallery of humankind" width="85%" />
-                    </div>
-                    <div class="magnification-glass">
-                        <!-- Image is for zooming in but should be replaced by zooming out -->
-                        <img src="../assets/icons/magnification-glass.png" alt="zoom out" />
+                        <div class="magnification-glass">
+                            <!-- Image is for zooming in but should be replaced by zooming out -->
+                            <img src="../assets/icons/magnification-glass.png" alt="zoom out" />
+                        </div>
                     </div>
                 </div>
+
+            <div id="popup" style="display: none">
+                <div class="popup-content">
+                    <img class="close" src="/assets/icons/cross-icon.png" height="30px" />
+                    <p class="task-text">TASK TASK TASK</p>
+                    <button class="popup-button glow_blue green">Scan QR code</button>
+                </div>
             </div>
+
+            <!--script for popup-->
+            <script>
+                const popupBtn = document.getElementById('popupBtn');
+                const popup = document.getElementById('popup');
+                const close = document.getElementsByClassName('close')[0];
+
+                popupBtn.onclick = function () {
+                    popup.style.display = 'block';
+                };
+
+                close.onclick = function () {
+                    popup.style.display = 'none';
+                };
+            </script>
         </main>
     </body>
 </html>
