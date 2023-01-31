@@ -18,6 +18,7 @@ function makeLeaderboardActive() {
 }
 
 function renderLeaderboard() {
+    const query = 'SELECT * FROM players ORDER BY wins DESC LIMIT 10';
     fetch(`https://iotai-backend.onrender.com/player/${playerId}`, {
             method: 'GET'
         })
