@@ -1,19 +1,28 @@
-//Tasks
+//Make pop-up for Tasks
+
 const popupBtns = document.querySelectorAll('.popupBtn');
-const popup = document.getElementById('popup');
-const close = document.getElementsByClassName('close')[0];
 
-//pop-up bij klikken
 popupBtns.forEach(function (btn) {
-btn.onclick = function () {
-    popup.style.display = 'block';
-};
-});
+  btn.onclick = function () {
+    const popup = document.createElement('div');
+    popup.innerHTML = `
+    <div id="popup" style="display: block">
+    <div class="popup-content">
+        <img class="close" src="/assets/icons/cross-icon.png" height="30px" />
+        <p class="task-text">Vraag</p>
+        <button class="popup-button glow_blue green">Submit</button>
+    </div>
+    </div>
+    `;
+    document.body.appendChild(popup);
 
-//pop-up verdwijnt bij klikken op het kruisje
-close.onclick = function () {
-popup.style.display = 'none';
-};
+    const close = popup.getElementsByClassName('close')[0];
+    close.onclick = function () {
+      popup.style.display = 'none';
+      popup.remove();
+    };
+  };
+});
 
 
 
