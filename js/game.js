@@ -46,7 +46,9 @@ popupBtns.forEach(function (btn) {
               }, "2000")
             } else {
             taskText.innerHTML = 'Wrong answer! Try again';
-
+            setTimeout(() => {
+                taskText.innerHTML = task.description;
+              }, "3000")
             }
         };
 
