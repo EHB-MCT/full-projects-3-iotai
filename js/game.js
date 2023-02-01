@@ -19,7 +19,7 @@ popupBtns.forEach(function (btn) {
         <div class="popup-content">
             <img class="close" src="/assets/icons/cross-icon.png" height="30px" />
             <p class="task-text">${task.description}</p>
-            <img class="task-image" src=/assets/tasks/dijbeen.jpg>
+            <img class="task-image" src=/assets/tasks/${task.image}>
             <div class="form">
                 <div class="input">
                     <input required type="text" name="text" autocomplete="off" placeholder="Answer" class="input" id="answerInput" />
