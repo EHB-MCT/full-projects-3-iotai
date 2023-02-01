@@ -39,16 +39,19 @@ popupBtns.forEach(function (btn) {
             const answer = answerInput.value;
             const taskText = document.getElementById('task-text');
             if (answer.toLowerCase() === task.answer.toLowerCase()) {
-            taskText.innerHTML = 'Task completed!';
-            setTimeout(() => {
-                popup.remove();
-                btn.style.display = 'none';
-              }, "2000")
+                taskText.style.color = "#00ffaf";
+                taskText.innerHTML = 'Task completed!';
+                setTimeout(() => {
+                    popup.remove();
+                    btn.style.display = 'none';
+                }, "2000")
             } else {
-            taskText.innerHTML = 'Wrong answer! Try again';
-            setTimeout(() => {
-                taskText.innerHTML = task.description;
-              }, "3000")
+                taskText.style.color = "#ff5758";
+                taskText.innerHTML = 'Wrong answer! Try again';
+                setTimeout(() => {
+                    taskText.style.color = "white";
+                    taskText.innerHTML = task.description;
+                }, "3000")
             }
         };
 
