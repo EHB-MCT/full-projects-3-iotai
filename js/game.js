@@ -28,7 +28,6 @@ popupBtns.forEach(function (btn) {
 
         const close = popup.getElementsByClassName('close')[0];
         close.onclick = function () {
-          popup.style.display = 'none';
           popup.remove();
         };
       });
