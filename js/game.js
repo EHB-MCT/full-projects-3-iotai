@@ -10,12 +10,10 @@ popupBtns.forEach(function (btn) {
     popup.style.display = 'block';
 
     // Call the API to retrieve the task description
-    const query = "SELECT * FROM tasks WHERE id = 1";
-    fetch(`https://iotai-backend.onrender.com/tasks?query=${query}`)
+    fetch(`https://iotai-backend.onrender.com/tasks`)
       .then(response => response.json())
       .then(tasks => {
         const task = tasks.find(t => t.id === Number(taskId));
-        console.log(task.description);
         popup.innerHTML = `
         <div id="popup" style="display: block">
         <div class="popup-content">
