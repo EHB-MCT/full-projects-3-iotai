@@ -41,7 +41,7 @@ p {
     align-items: center;
 }
 
-.voting-container {
+.votingContainer {
     display: flex;
     text-align: center;
     margin: 10px 15px;

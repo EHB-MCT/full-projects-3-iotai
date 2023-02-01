@@ -1,5 +1,25 @@
 'use strict';
 
+window.onload = async () => {
+    addPlayers();
+};
+
+/*spelers inladen*/
+function addPlayers() {
+    const votingContainer = document.querySelector('#players');
+    lobby.players.forEach((player) => {
+        votingContainer.innerHTML += `
+        <div class="votingContainer">
+            <p>${player.name}</p>
+            <div class="av-vote">
+            <img id="avatar-img" src="../assets/avatars/avatar-${player.avatar}.png">
+            <button class="btn-vote button-green" id="btn1">Vote</button>
+            </div>
+        </div>
+        `;
+    });
+}
+
 /*pressing vote button*/
 const buttons = document.querySelectorAll('.btn-vote');
 
