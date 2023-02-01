@@ -8,7 +8,6 @@
   <title>Lobby</title>
   <link rel="icon" href="../assets/evologo.png" type="images/x-icon" />
   <link rel="stylesheet" href="../css/voting.css" />
-  <script src="../js/lobby.js" type="module" defer></script>
   <script src="../js/info-btn.js" defer></script>
   <script src="/js/voting.js" defer></script>
 </head>
@@ -18,8 +17,9 @@
 
     <div class="voting-wrapper">
       <p class="subtitles" id="prompt">Vote for your main suspect.</p>
-      <p class="subtitles" id="prompt">Voting ends in 30s...</p>
-      <p class="subtitles" id="prompt">Votes: 4/15</p>
+      <p class="subtitles" id="prompt">Voting end in <span id="countdown">120</span> seconds.</p>
+    
+      <p class="subtitles" id="prompt">Voted: <span id="vote-amount">0</span>/15</p>
     </div>
 
     <div id="voting-system">
