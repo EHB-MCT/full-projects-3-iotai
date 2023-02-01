@@ -42,6 +42,7 @@ popupBtns.forEach(function (btn) {
             taskText.innerHTML = 'Task completed!';
             setTimeout(() => {
                 popup.remove();
+                btn.style.display = 'none';
               }, "2000")
             } else {
             taskText.innerHTML = 'Wrong answer! Try again';
