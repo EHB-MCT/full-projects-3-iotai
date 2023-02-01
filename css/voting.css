@@ -28,8 +28,9 @@ body {
 #voting-system {
     display: flex;
     text-align: center;
-    /*     background-color: red; */
+    /*  background-color: red; */
     flex-wrap: wrap;
+    margin-bottom: 5%;
 }
 
 p {
@@ -44,12 +45,18 @@ p {
 .voting-container {
     display: flex;
     text-align: center;
-    margin: 0 15px;
+    margin: 10px 15px;
     flex-basis: 15%;
-    /*     border-color: yellow;
-    border-style: dashed; */
     flex-direction: column;
-    margin-bottom: 20px;
+    /*    margin-bottom: 10px; */
+}
+
+#voting-system {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 5px 0;
+
 }
 
 #avatar-img {
@@ -59,14 +66,23 @@ p {
 }
 
 #btn-vote {
-    padding: 3px 15px;
+    padding: 8px 15px;
 }
 
 #btn-voted {
-    padding: 3px 15px;
+    padding: 8px 15px;
 }
 
 .skip-vote {
     text-align: right;
+}
 
+button {
+    min-width: 80px;
+}
+
+.skip-wrapper {
+    margin: 25px 0;
+    align-items: flex-end;
+    margin-right: 3.5%;
 }
