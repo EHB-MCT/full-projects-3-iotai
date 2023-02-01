@@ -18,8 +18,8 @@ popupBtns.forEach(function (btn) {
         <div id="popup" style="display: block">
         <div class="popup-content">
             <img class="close" src="/assets/icons/cross-icon.png" height="30px" />
-            <p class="task-text">${task.description}</p>
-            <img class="task-image" src=/assets/tasks/${task.img}>
+            <p class="task-text" id="task-text">${task.description}</p>
+            <img class="task-image" id="task-image" src=/assets/tasks/${task.img}>
             <div class="form">
                 <div class="input">
                     <input required type="text" name="text" autocomplete="off" placeholder="Answer" class="input" id="answerInput" />
@@ -37,10 +37,15 @@ popupBtns.forEach(function (btn) {
         submitAnswerButton.onclick = function () {
             const answerInput = document.getElementById('answerInput');
             const answer = answerInput.value;
+            const taskText = document.getElementById('task-text');
             if (answer.toLowerCase() === task.answer.toLowerCase()) {
-            alert('Correct answer!');
+            taskText.innerHTML = 'Task completed!';
+            setTimeout(() => {
+                popup.remove();
+              }, "2000")
             } else {
-            alert('Incorrect answer, please try again.');
+            taskText.innerHTML = 'Wrong answer! Try again';
+
             }
         };
 
