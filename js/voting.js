@@ -1,23 +1,37 @@
 'use strict';
 
+import * as cookie from './cookie.js';
+
 window.onload = async () => {
     addPlayers();
 };
 
 /*spelers inladen*/
 function addPlayers() {
-    const votingContainer = document.querySelector('#players');
-    lobby.players.forEach((player) => {
-        votingContainer.innerHTML += `
-        <div class="votingContainer">
+    const votingContainer = document.querySelector('#voting-system');
+    cookie.setCookie('lobby_ic', 'GNHNTR');
+    console.log(document.cookie);
+    const lobby_ic = cookie.getCookie('lobby_ic');
+    fetch(`https://iotai-backend.onrender.com/lobby/${lobby_ic}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+        .then((res) => res.json())
+        .then((lobby) => {
+            lobby.players.forEach((player) => {
+                votingContainer.innerHTML += `
+            <div class="votingContainer">
             <p>${player.name}</p>
             <div class="av-vote">
             <img id="avatar-img" src="../assets/avatars/avatar-${player.avatar}.png">
             <button class="btn-vote button-green" id="btn1">Vote</button>
             </div>
-        </div>
-        `;
-    });
+            </div>
+            `;
+            });
+        });
 }
 
 /*pressing vote button*/
