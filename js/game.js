@@ -15,6 +15,8 @@ close.onclick = function () {
 popup.style.display = 'none';
 };
 
+
+
 //Meeting button -> mag niet kunnen verdwijnen met kruisje
 
 const meetingBtn = document.querySelector('.meeting-button');
