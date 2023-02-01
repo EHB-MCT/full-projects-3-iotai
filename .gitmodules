@@ -1,0 +1,3 @@
+[submodule "iotai-backend"]
+	path = iotai-backend
+	url = https://github.com/StephanVanHemelrijck/iotai-backend.git
