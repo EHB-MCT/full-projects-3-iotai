@@ -50,10 +50,3 @@
         text-shadow: 0 0 20px #dafff3, 0 0 30px #f9d73b, 0 0 40px #f9d73b, 0 0 50px #f9d73b, 0 0 60px #f9d73b, 0 0 70px #f9d73b, 0 0 80px #f9d73b;
     }
 }
-
-@media only screen and (orientation:portrait) {
-    body {
-        height: 100vw;
-        transform: rotate(90deg);
-    }
-}
