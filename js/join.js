@@ -17,8 +17,8 @@ function makeHomeActive() {
     home.height = home.height * 1.5;
 }
 
-function init() {
-    renderName();
+async function init() {
+    await renderName();
     initJoinLobby();
     const arrowLeft = document.querySelector('#arrow-left');
     const arrowRight = document.querySelector('#arrow-right');
@@ -38,7 +38,6 @@ function renderName() {
     })
         .then((res) => res.json())
         .then((player) => {
-            console.log(player);
             document.querySelector('#avatar').src = `../assets/avatars/avatar-${player[0].avatar}.png`;
             nameField.textContent = `Hello ${player[0].name}!`;
         });

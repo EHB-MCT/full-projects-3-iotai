@@ -32,7 +32,7 @@ function renderLobby() {
         .then((lobby) => {
             cookie.setCookie('lobby_id', lobby.id, { 'max-age': 60 * 60 * 3 });
             prompt.textContent = `Waiting for players... ${lobby.player_count}/${lobby.player_limit}`;
-
+            playersDiv.innerHTML = '';
             lobby.players.forEach((player) => {
                 playersDiv.innerHTML += `
                 <div class="player">
