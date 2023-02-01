@@ -10,7 +10,6 @@ body {
     margin: 20px 0px 30px;
 }
 
-
 .voting-wrapper {
     display: flex;
     align-items: center;
@@ -56,7 +55,6 @@ p {
     display: flex;
     justify-content: center;
     margin: 5px 0;
-
 }
 
 #avatar-img {
@@ -65,12 +63,12 @@ p {
     margin: 0 15px 0 0px;
 }
 
-#btn-vote {
+.btn-vote {
     padding: 8px 15px;
 }
 
-#btn-voted {
-    padding: 8px 15px;
+#btn-vote {
+    width: 120px;
 }
 
 .skip-vote {
