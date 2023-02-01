@@ -19,6 +19,7 @@ popupBtns.forEach(function (btn) {
         <div class="popup-content">
             <img class="close" src="/assets/icons/cross-icon.png" height="30px" />
             <p class="task-text">${task.description}</p>
+            <img class="task-image" src=/assets/tasks/mosasaurus.jpg>
             <button class="popup-button glow_blue green">Submit</button>
         </div>
         </div>
