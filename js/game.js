@@ -37,7 +37,7 @@ popupBtns.forEach(function (btn) {
         submitAnswerButton.onclick = function () {
             const answerInput = document.getElementById('answerInput');
             const answer = answerInput.value;
-            if (answer === task.answer) {
+            if (answer.toLowerCase() === task.answer.toLowerCase()) {
             alert('Correct answer!');
             } else {
             alert('Incorrect answer, please try again.');
