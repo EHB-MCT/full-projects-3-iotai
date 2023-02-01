@@ -5,6 +5,8 @@ const popupBtns = document.querySelectorAll('.popupBtn');
 popupBtns.forEach(function (btn) {
   btn.onclick = function () {
     const popup = document.createElement('div');
+    const taskId = btn.getAttribute('data-task-id');
+    console.log(taskId);
     popup.innerHTML = `
     <div id="popup" style="display: block">
     <div class="popup-content">
