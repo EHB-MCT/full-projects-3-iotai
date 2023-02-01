@@ -15,7 +15,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: blue;
+    /*     background-color: blue; */
 }
 
 .rule_footer button {
@@ -28,11 +28,11 @@ body {
 #voting-system {
     display: flex;
     text-align: center;
-    background-color: red;
+    /*     background-color: red; */
+    flex-wrap: wrap;
 }
 
 p {
-    width: 120%;
     color: white;
 }
 
@@ -45,15 +45,17 @@ p {
     display: flex;
     text-align: center;
     margin: 0 15px;
-    border-color: yellow;
-    border-style: dashed;
+    flex-basis: 15%;
+    /*     border-color: yellow;
+    border-style: dashed; */
     flex-direction: column;
+    margin-bottom: 20px;
 }
 
 #avatar-img {
-    width: 32px;
+    width: 48px;
     height: auto;
-    margin: 0 20px 0 0;
+    margin: 0 15px 0 0px;
 }
 
 #btn-vote {
@@ -64,5 +66,7 @@ p {
     padding: 3px 15px;
 }
 
+.skip-vote {
+    text-align: right;
 
-
+}
