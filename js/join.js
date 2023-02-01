@@ -11,8 +11,8 @@ window.onload = async () => {
 };
 
 function makeHomeActive() {
-    const home = document.querySelector('#home-img');
-    home.src = '../assets/nav/home-active.png';
+    const home = document.querySelector('#join-img');
+    home.src = '../assets/nav/join-active.png';
     home.width = home.width * 1.5;
     home.height = home.height * 1.5;
 }
