@@ -10,6 +10,7 @@ body {
     width: 100vw;
     height: 100vh;
     background-color: #001600;
+    overflow: hidden;
 }
 
 main {
@@ -103,6 +104,23 @@ main {
     width: 35px;
 }
 
+/* Eliminated button */
+
+.eliminated-button {
+    background-color: #001600;
+    border: 1px solid #ff5758;
+    padding: 5px;
+    display: flex;
+    flex-flow: wrap;
+    position: absolute;
+    right: 10%;
+    bottom: 10%;
+}
+
+.eliminated_icon {
+    width: 75px;
+}
+
 .task-number {
     margin: 5px;
 }
@@ -132,7 +150,8 @@ main {
     justify-content: center;
 }
 
-.meetingPopup-content {
+.meetingPopup-content,
+.eliminatedPopup-content {
     width: 80%;
     height: 80%;
     background-color: #001600;
@@ -144,6 +163,7 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+
 }
 
 #meetingPopup .meetingPopup-content {
@@ -153,6 +173,7 @@ main {
     align-items: center;
     justify-content: center;
     height: 80%;
+    z-index: 100000;
 }
 
 .close {
@@ -189,4 +210,78 @@ main {
     width: 100%;
     margin: auto;
     padding: 5px;
+}
+
+
+
+/* pop-up styling eliminated button */
+#confirmOverlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: url('ie.png');
+    background: -moz-linear-gradient(rgba(11, 11, 11, 0.1), rgba(11, 11, 11, 0.6)) repeat-x rgba(11, 11, 11, 0.2);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(11, 11, 11, 0.1)), to(rgba(11, 11, 11, 0.6))) repeat-x rgba(11, 11, 11, 0.2);
+    z-index: 100000;
+}
+
+#confirmBox {
+    background-color: #001600;
+    width: 460px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin: -130px 0 0 -230px;
+    border: 2px solid #ff5758;
+}
+
+#confirmBox h1,
+#confirmBox p {
+    padding: 18px 25px;
+    color: #666;
+}
+
+#confirmBox h1 {
+    letter-spacing: 0.3px;
+    color: #ff5758;
+}
+
+#confirmBox p {
+    background: none;
+    font-size: 16px;
+    line-height: 1.4;
+    padding-top: 35px;
+}
+
+#confirmButtons {
+    padding: 15px 0 25px;
+    text-align: center;
+}
+
+#confirmBox .button {
+    display: inline-block;
+    color: white;
+    position: relative;
+    height: 33px;
+
+    font: 17px/33px;
+    margin-right: 15px;
+    padding: 0 35px 0 40px;
+    text-decoration: none;
+    border: none;
+}
+
+#confirmBox .button:last-child {
+    margin-right: 0;
+}
+
+#confirmBox .button span {
+    position: absolute;
+    top: 0;
+    right: -5px;
+    background: url('buttons.png') no-repeat;
+    width: 5px;
+    height: 33px
 }

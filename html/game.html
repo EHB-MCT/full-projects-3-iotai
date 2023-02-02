@@ -1,51 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>EvoMission</title>
-        <link rel="icon" href="../assets/evologo.png" type="images/x-icon" />
-        <link rel="stylesheet" href="../css/game.css" />
-        <link rel="stylesheet" href="../css/animations.css" />
-        <link rel="stylesheet" href="../css/styleguide.css" />
-        <script src="../js/game.js" type="module" defer></script>
 
-        <script src="../js/info-btn.js" defer></script>
-    </head>
-    <body>
-        <main>
-            <div class="aside">
-                <div class="call-for-meeting">
-                    <div class="wrapper">
-                        <button class="meeting-button glow_red red">
-                            <p class="subtitles">Call for meeting</p>
-                            <img class="warning_icon" src="../assets/icons/warning-icon.png" alt="meeting room" />
-                        </button>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EvoMission</title>
+    <link rel="icon" href="../assets/evologo.png" type="images/x-icon" />
+    <link rel="stylesheet" href="../css/game.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+    <link rel="stylesheet" href="../css/styleguide.css" />
+    <script src="../js/game.js" type="module" defer></script>
+
+    <script src="../js/info-btn.js" defer></script>
+</head>
+
+<body>
+    <main>
+
+
+        <div class="aside">
+            <div class="call-for-meeting">
+                <div class="wrapper">
+                    <button class="meeting-button glow_red red">
+                        <p class="subtitles">Call for meeting</p>
+                        <img class="warning_icon" src="../assets/icons/warning-icon.png" alt="meeting room" />
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <div>
+            <div class="progress-bar-wrapper">
+                <div class="progress-bar">
+                    <div id="progress">
+                        <p class="task-number subtitles"></p>
+                    </div>
+                </div>
+                <p class="subtitles">Tap a number to start a task</p>
+            </div>
+            <div class="map">
+                <div class="missions" id="tasks-wrapper">
+                </div>
+                <div class="room">
+                    <img src="../assets/MNW_plattegrond3.png" alt="gallery of humankind" width="85%" />
+                    <div class="magnification-glass">
+                        <!-- Image is for zooming in but should be replaced by zooming out -->
+                        <img src="../assets/icons/magnification-glass.png" alt="zoom out" />
                     </div>
                 </div>
             </div>
-            <div>
-                <div class="progress-bar-wrapper">
-                    <div class="progress-bar">
-                        <div id="progress">
-                            <p class="task-number subtitles"></p>
-                        </div>
-                    </div>
-                    <p class="subtitles">Tap a number to start a task</p>
-                </div>
-                <div class="map">
-                    <div class="missions" id="tasks-wrapper">
-                        
-                    </div>
-                    <div class="room">
-                        <img src="../assets/MNW_plattegrond3.png" alt="gallery of humankind" width="85%" />
-                        <div class="magnification-glass">
-                            <!-- Image is for zooming in but should be replaced by zooming out -->
-                            <img src="../assets/icons/magnification-glass.png" alt="zoom out" />
-                        </div>
-                    </div>
-                </div>
 
             <div id="popup" style="display: none">
                 <div class="popup-content">
@@ -58,9 +63,34 @@
             <div id="meetingPopup" style="display: none">
                 <div class="meetingPopup-content">
                     <h1 class="emergency titles glow_red red title-log-in">EMERGENCY</h1>
-                    <p>Go to the main hall</p>
+                    <p>Go to the dinosaur gallery</p>
                 </div>
             </div>
-        </main>
-    </body>
+        </div>
+
+        <!--Eliminated button-->
+        <div class="eliminated-player" id="eliminated-id">
+        </div>
+
+        <!--Eliminated Pop-up-->
+        <div id="eliminated-Popup" style="display: none">
+            <div class="eliminatedPopup-content">
+                <h1 class="eliminated titles glow_red red title-log-in">Do you confirm your elimination?</h1>
+            </div>
+        </div>
+
+        <!-- Poging tot confirm box maken-->
+        <!-- <div id="confirmOverlay">
+            <div id="confirmBox">
+                <h1>Do you confirm your elimination?</h1>
+                <div id="confirmButtons">
+                    <a class="button blue" href="#">Yes<span></span></a>
+                    <a class="button gray" href="#">No<span></span></a>
+                </div>
+            </div>
+        </div> -->
+
+    </main>
+</body>
+
 </html>
