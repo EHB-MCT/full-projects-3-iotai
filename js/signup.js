@@ -17,7 +17,6 @@ function initCreatePlayer() {
         const name = document.querySelector('#input-name').value;
         const password = document.querySelector('#input-password').value;
         const email = document.querySelector('#input-email').value;
-        console.log(name, password, email);
         fetch('https://iotai-backend.onrender.com/player/register', {
             method: 'POST',
             headers: {
@@ -31,9 +30,8 @@ function initCreatePlayer() {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
+                if (data.error) return alert(data.error);
                 if (data.status == 200) {
-                    console.log(data);
                     // Store in cookie
                     const timeUntillCookieExpiresInSeconds = 60 * 60 * 24 * 7; // Set to expire in 1 week
                     cookie.setCookie('player_id', `${data.player.id}`, {

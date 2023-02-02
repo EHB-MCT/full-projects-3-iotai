@@ -11,14 +11,14 @@ window.onload = async () => {
 };
 
 function makeHomeActive() {
-    const home = document.querySelector('#home-img');
-    home.src = '../assets/nav/home-active.png';
+    const home = document.querySelector('#join-img');
+    home.src = '../assets/nav/join-active.png';
     home.width = home.width * 1.5;
     home.height = home.height * 1.5;
 }
 
-function init() {
-    renderName();
+async function init() {
+    await renderName();
     initJoinLobby();
     const arrowLeft = document.querySelector('#arrow-left');
     const arrowRight = document.querySelector('#arrow-right');
@@ -38,7 +38,6 @@ function renderName() {
     })
         .then((res) => res.json())
         .then((player) => {
-            console.log(player);
             document.querySelector('#avatar').src = `../assets/avatars/avatar-${player[0].avatar}.png`;
             nameField.textContent = `Hello ${player[0].name}!`;
         });

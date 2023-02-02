@@ -30,10 +30,13 @@ function createImages(subdirectory, size, ...[images]) {
 }
 
 function renderNav() {
-    const images = createImages('nav', 35, ['home', 'leaderboard', 'shop', 'profile']);
+    const images = createImages('nav', 35, ['join', 'leaderboard', 'shop', 'profile']);
     const footer = document.querySelector('footer');
     images.forEach((image) => {
-        footer.append(image);
+        const link = document.createElement('a');
+        link.href = `./${image.alt}.html`;
+        link.append(image);
+        footer.append(link);
     });
 }
 

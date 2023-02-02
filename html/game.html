@@ -7,7 +7,6 @@
         <title>EvoMission</title>
         <link rel="icon" href="../assets/evologo.png" type="images/x-icon" />
         <link rel="stylesheet" href="../css/game.css" />
-        <link rel="stylesheet" href="/style.css" />
         <link rel="stylesheet" href="../css/animations.css" />
         <link rel="stylesheet" href="../css/styleguide.css" />
         <script src="../js/game.js" type="module" defer></script>
@@ -30,28 +29,14 @@
                 <div class="progress-bar-wrapper">
                     <div class="progress-bar">
                         <div id="progress">
-                            <p class="task-number subtitles">30</p>
+                            <p class="task-number subtitles"></p>
                         </div>
                     </div>
                     <p class="subtitles">Tap a number to start a task</p>
                 </div>
                 <div class="map">
-                    <div class="missions">
-                        <div id="mission1">
-                            <button class="popupBtn" data-task-id="1">
-                                <img src="../assets/icons/pin_1.png" alt="mission 1" />
-                            </button>
-                        </div>
-                        <div id="mission2">
-                            <button class="popupBtn" data-task-id="2">
-                                <img src="../assets/icons/pin_2.png" alt="mission 2" />
-                            </button>
-                        </div>
-                        <div id="mission3">
-                            <button class="popupBtn"  data-task-id="3">
-                                <img src="../assets/icons/pin_3.png" alt="mission 3" />
-                            </button>
-                        </div>
+                    <div class="missions" id="tasks-wrapper">
+                        
                     </div>
                     <div class="room">
                         <img src="../assets/MNW_plattegrond3.png" alt="gallery of humankind" width="85%" />

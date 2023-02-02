@@ -1,69 +1,142 @@
-//Make pop-up for Tasks
+'use strict';
 
-const popupBtns = document.querySelectorAll('.popupBtn');
+import * as cookie from './cookie.js';
 
-popupBtns.forEach(function (btn) {
-  btn.onclick = function () {
-    const taskId = btn.getAttribute('data-task-id');
-    const popup = document.createElement('div');
-    popup.id = 'popup';
-    popup.style.display = 'block';
+window.onload = async () => {
+    await renderTasks();
+    renderTaskProgress();
+    initPopups();
+};
 
-    // Call the API to retrieve the task description
-    fetch(`https://iotai-backend.onrender.com/tasks`)
-      .then(response => response.json())
-      .then(tasks => {
-        const task = tasks.find(t => t.id === Number(taskId));
-        popup.innerHTML = `
-        <div id="popup" style="display: block">
-        <div class="popup-content">
-            <img class="close" src="/assets/icons/cross-icon.png" height="30px" />
-            <p class="task-text" id="task-text">${task.description}</p>
-            <img class="task-image" id="task-image" src=/assets/tasks/${task.img}>
-            <div class="form">
-                <div class="input">
-                    <input required type="text" name="text" autocomplete="off" placeholder="Answer" class="input" id="answerInput" />
-                </div>
-                <div class="buttons">
-                    <button class="popup-button glow_blue green" id="submit-answer-button">Submit</button>
-                </div>
-            </div>
-        </div>
-        </div>
-        `;
-        document.body.appendChild(popup);
+// Keep checking task progress
+setInterval(() => {
+    renderTaskProgress();
+}, 1000);
 
-        const submitAnswerButton = document.getElementById('submit-answer-button');
-        submitAnswerButton.onclick = function () {
-            const answerInput = document.getElementById('answerInput');
-            const answer = answerInput.value;
-            const taskText = document.getElementById('task-text');
-            if (answer.toLowerCase() === task.answer.toLowerCase()) {
-                taskText.style.color = "#00ffaf";
-                taskText.innerHTML = 'Task completed!';
-                setTimeout(() => {
-                    popup.remove();
-                    btn.style.display = 'none';
-                }, "2000")
-            } else {
-                taskText.style.color = "#ff5758";
-                taskText.innerHTML = 'Wrong answer! Try again';
-                setTimeout(() => {
-                    taskText.style.color = "white";
-                    taskText.innerHTML = task.description;
-                }, "3000")
-            }
-        };
+async function renderTaskProgress() {
+    fetch(`http://localhost:1337/tasks/progress/${cookie.getCookie('lobby_invite_code')}`)
+        .then((res) => res.json())
+        .then((data) => {
+            const progress = document.querySelector('#progress');
+            progress.style.width = `${data.progress}%`;
+        });
+}
 
-        const close = popup.getElementsByClassName('close')[0];
-        close.onclick = function () {
-          popup.remove();
-        };
-      });
-  };
-});
+async function renderTasks() {
+    await fetch(`http://localhost:1337/tasks/player/all`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            player_id: cookie.getCookie('player_id'),
+            lobby_ic: cookie.getCookie('lobby_invite_code'),
+            amount: 3,
+        }),
+    })
+        .then((res) => res.json())
+        .then((data) => {
+            const tasks = data.tasks;
+            const tasksDiv = document.querySelector('#tasks-wrapper');
+            tasks.forEach((task, index) => {
+                const div = document.createElement('div');
+                div.id = `mission${index + 1}`;
+                div.style.position = 'absolute';
+                div.style.left = task.positionX;
+                div.style.top = task.positionY;
 
+                const btn = document.createElement('button');
+                btn.classList.add('popupBtn');
+                btn.dataset.taskId = task.id;
 
+                const img = document.createElement('img');
+                img.src = `../assets/icons/pin_${index + 1}.png`;
+                img.alt = `mission ${index + 1}`;
+
+                //
+                div.append(btn);
+                btn.append(img);
+                tasksDiv.append(div);
+            });
+        });
+}
+
+async function initPopups() {
+    const popupBtns = document.querySelectorAll('.popupBtn');
+    popupBtns.forEach((btn) => {
+        btn.addEventListener('click', async () => {
+            const taskId = btn.getAttribute('data-task-id');
+            const popup = document.createElement('div');
+            popup.id = 'popup';
+            popup.style.display = 'block';
+            // Get TASK info
+            fetch(`https://iotai-backend.onrender.com/task/${taskId}`)
+                .then((res) => res.json())
+                .then((task) => {
+                    console.log(task);
+                    popup.innerHTML = `
+                    <div id="popup" style="display: block">
+                    <div class="popup-content">
+                        <img class="close" src="/assets/icons/cross-icon.png" height="30px" />
+                        <p class="task-text" id="task-text">${task.description}</p>
+                        <img class="task-image" id="task-image" src=/assets/tasks/${task.img}>
+                        <div class="form">
+                            <div class="input">
+                                <input required type="text" name="text" autocomplete="off" placeholder="Answer" class="input" id="answerInput" />
+                            </div>
+                            <div class="buttons">
+                                <button class="popup-button glow_blue green" id="submit-answer-button">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    `;
+                    document.body.appendChild(popup);
+
+                    const submitAnswerButton = document.getElementById('submit-answer-button');
+                    submitAnswerButton.onclick = async function () {
+                        const answerInput = document.getElementById('answerInput');
+                        const answer = answerInput.value;
+                        const taskText = document.getElementById('task-text');
+                        if (answer.toLowerCase() === task.answer.toLowerCase()) {
+                            taskText.style.color = '#00ffaf';
+                            taskText.innerHTML = 'Task completed!';
+                            // complete task in backend
+                            await fetch(`https://iotai-backend.onrender.com/task/${task.id}/complete`, {
+                                method: 'PUT',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify({
+                                    player_id: cookie.getCookie('player_id'),
+                                    lobby_invite_code: cookie.getCookie('lobby_invite_code'),
+                                }),
+                            })
+                                .then((res) => res.json())
+                                .then((data) => {
+                                    setTimeout(() => {
+                                        popup.remove();
+                                        btn.style.display = 'none';
+                                    }, '2000');
+                                });
+                        } else {
+                            taskText.style.color = '#ff5758';
+                            taskText.innerHTML = 'Wrong answer! Try again';
+                            setTimeout(() => {
+                                taskText.style.color = 'white';
+                                taskText.innerHTML = task.description;
+                            }, '3000');
+                        }
+                    };
+
+                    const close = popup.getElementsByClassName('close')[0];
+                    close.onclick = function () {
+                        popup.remove();
+                    };
+                });
+        });
+    });
+}
 
 //Meeting button -> mag niet kunnen verdwijnen met kruisje
 
@@ -72,7 +145,7 @@ const meetingPopup = document.getElementById('meetingPopup');
 
 //pop-up bij klikken
 meetingBtn.addEventListener('click', function () {
-    console.log("clicked on meeting button");
+    console.log('clicked on meeting button');
     meetingPopup.style.display = 'block';
 
     //redirect to voting page after 10 seconds

@@ -1,4 +1,4 @@
-@media only screen and (orientation:portrait) {
+@media only screen and (orientation: portrait) {
     body {
         height: 100vw;
         transform: rotate(90deg);
@@ -13,6 +13,16 @@ body {
     justify-content: center;
     align-content: center;
     text-align: center;
+}
+
+#countdown {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .role-title {
