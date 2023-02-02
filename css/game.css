@@ -163,7 +163,6 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-
 }
 
 #meetingPopup .meetingPopup-content {
@@ -212,8 +211,6 @@ main {
     padding: 5px;
 }
 
-
-
 /* pop-up styling eliminated button */
 #confirmOverlay {
     width: 100%;
@@ -233,14 +230,13 @@ main {
     position: fixed;
     left: 50%;
     top: 50%;
-    margin: -130px 0 0 -230px;
+    margin: -150px 0 0 -230px;
     border: 2px solid #ff5758;
 }
 
 #confirmBox h1,
 #confirmBox p {
     padding: 18px 25px;
-    color: #666;
 }
 
 #confirmBox h1 {
@@ -253,11 +249,17 @@ main {
     font-size: 16px;
     line-height: 1.4;
     padding-top: 35px;
+    text-decoration: none;
 }
 
 #confirmButtons {
     padding: 15px 0 25px;
     text-align: center;
+}
+
+.confirmButton {
+    padding: 10px 20px;
+    margin: 0 20px;
 }
 
 #confirmBox .button {
@@ -283,5 +285,5 @@ main {
     right: -5px;
     background: url('buttons.png') no-repeat;
     width: 5px;
-    height: 33px
+    height: 33px;
 }
