@@ -8,4 +8,16 @@ window.onload = (event) => {
     }, 400);
 };
 
+function backToGame(){
+    //Set "meeting active" to false (0) in database
+    fetch(`https://iotai-backend.onrender.com/lobby/NOjEhv/end-meeting`, {
+        method: 'POST',
+    });
+
+    //Back to game screen after 5 sec
+    setTimeout(() => {
+        window.location.href = '../html/game.html';
+    }, 5000);
+}
+
 function EjectPlayer() {}
