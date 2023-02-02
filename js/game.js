@@ -14,7 +14,7 @@ setInterval(() => {
 }, 1000);
 
 async function renderTaskProgress() {
-    fetch(`http://localhost:1337/tasks/progress/${cookie.getCookie('lobby_invite_code')}`)
+    fetch(`https://iotai-backend.onrender.com/tasks/progress/${cookie.getCookie('lobby_invite_code')}`)
         .then((res) => res.json())
         .then((data) => {
             const progress = document.querySelector('#progress');
@@ -23,7 +23,7 @@ async function renderTaskProgress() {
 }
 
 async function renderTasks() {
-    await fetch(`http://localhost:1337/tasks/player/all`, {
+    await fetch(`https://iotai-backend.onrender.com/tasks/player/all`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
