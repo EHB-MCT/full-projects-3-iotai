@@ -8,4 +8,13 @@ window.onload = (event) => {
     }, 400);
 };
 
+backToGame();
+
+function backToGame(){
+    //Back to game screen after 5 sec
+    setTimeout(() => {
+        window.location.href = '../html/game.html';
+    }, 5000);
+}
+
 function EjectPlayer() {}
