@@ -28,12 +28,13 @@ async function renderEliminatedButton() {
         console.log('click');
         confirmOverlay.style.display = 'block';
 
-        //TO DO : If confirmed, scientist needs to be stored as eliminated in database, else stays in the game
+        /* //TO DO : If confirmed, scientist needs to be stored as eliminated in database, else stays in the game
         if (confirm('Do you confirm your elimination?') == true) {
             text = 'You pressed OK!';
         } else {
             text = 'You cancelled!';
-        }
+        } */
+        
     });
     btn.style.display = 'block';
 }
@@ -49,16 +50,16 @@ async function renderTaskProgress() {
 
 async function renderTasks() {
     await fetch(`https://iotai-backend.onrender.com/tasks/player/all`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            player_id: cookie.getCookie('player_id'),
-            lobby_ic: cookie.getCookie('lobby_invite_code'),
-            amount: 3,
-        }),
-    })
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                player_id: cookie.getCookie('player_id'),
+                lobby_ic: cookie.getCookie('lobby_invite_code'),
+                amount: 3,
+            }),
+        })
         .then((res) => res.json())
         .then((data) => {
             const tasks = data.tasks;
@@ -128,15 +129,15 @@ async function initPopups() {
                             taskText.innerHTML = 'Task completed!';
                             // complete task in backend
                             await fetch(`https://iotai-backend.onrender.com/task/${task.id}/complete`, {
-                                method: 'PUT',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                },
-                                body: JSON.stringify({
-                                    player_id: cookie.getCookie('player_id'),
-                                    lobby_invite_code: cookie.getCookie('lobby_invite_code'),
-                                }),
-                            })
+                                    method: 'PUT',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                    },
+                                    body: JSON.stringify({
+                                        player_id: cookie.getCookie('player_id'),
+                                        lobby_invite_code: cookie.getCookie('lobby_invite_code'),
+                                    }),
+                                })
                                 .then((res) => res.json())
                                 .then((data) => {
                                     setTimeout(() => {

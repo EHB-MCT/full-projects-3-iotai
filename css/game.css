@@ -237,6 +237,7 @@ main {
 #confirmBox h1,
 #confirmBox p {
     padding: 18px 25px;
+    text-align: center;
 }
 
 #confirmBox h1 {
