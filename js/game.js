@@ -85,7 +85,7 @@ async function initPopups() {
                     <div class="popup-content">
                         <img class="close" src="/assets/icons/cross-icon.png" height="30px" />
                         <p class="task-text" id="task-text">${task.description}</p>
-                        <img class="task-image" id="task-image" src=/assets/tasks/${task.img}>
+                        <img class="task-image" id="task-image" src='../assets/tasks/${task.img}'>
                         <div class="form">
                             <div class="input">
                                 <input required type="text" name="text" autocomplete="off" placeholder="Answer" class="input" id="answerInput" />

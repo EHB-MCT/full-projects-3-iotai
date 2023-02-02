@@ -71,7 +71,7 @@ function initJoinLobby() {
     });
 }
 
-function browseAvatars(direction) {
+async function browseAvatars(direction) {
     const avatars = {
         green: [
             'agate-g',
@@ -105,7 +105,7 @@ function browseAvatars(direction) {
     avatarIMG.setAttribute('src', `../assets/avatars/avatar-${nextAvatar}.png`);
     avatarIMG.setAttribute('alt', nextAvatar);
     console.log(nextAvatar);
-    fetch('https://iotai-backend.onrender.com/player/avatar/update', {
+    await fetch('https://iotai-backend.onrender.com/player/avatar/update', {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',

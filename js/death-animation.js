@@ -10,7 +10,7 @@ window.onload = (event) => {
 
 backToGame();
 
-function backToGame(){
+function backToGame() {
     //Back to game screen after 5 sec
     setTimeout(() => {
         window.location.href = '../html/game.html';

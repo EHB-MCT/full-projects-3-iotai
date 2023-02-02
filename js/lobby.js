@@ -3,7 +3,7 @@
 import * as cookie from './cookie.js';
 
 window.onload = () => {
-    console.log('Logging from NEWEST COMMIT AT 1010PM');
+    console.log('Logging from NEWEST COMMIT AT 1030PM');
     renderLobby();
     checkIfLobbyHasStarted();
     console.log(document.cookie);
