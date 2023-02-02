@@ -61,9 +61,9 @@ function initJoinLobby() {
         })
             .then((res) => res.json())
             .then(async (lobby) => {
-                console.log(lobby);
+                if (lobby.status == 400) return alert(lobby.message);
                 const timeUntillCookieExpiresInSeconds = 60 * 60 * 3; // Set to 3hrs
-                await cookie.setCookie('lobby_invite_code', ic, {
+                cookie.setCookie('lobby_invite_code', ic, {
                     'max-age': timeUntillCookieExpiresInSeconds,
                 });
                 window.location = window.location.href.substring(0, window.location.href.lastIndexOf('/')) + '/lobby.html';

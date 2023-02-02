@@ -8,6 +8,7 @@ window.onload = async () => {
     await renderTasks();
     renderTaskProgress();
     initPopups();
+    console.log(document.cookie);
 };
 
 // Keep checking task progress
@@ -20,6 +21,7 @@ async function renderTaskProgress() {
     fetch(`https://iotai-backend.onrender.com/tasks/progress/${cookie.getCookie('lobby_invite_code')}`)
         .then((res) => res.json())
         .then((data) => {
+            if (data.status == 400) return;
             const progress = document.querySelector('#progress');
             progress.style.width = `${data.progress}%`;
         });
@@ -151,22 +153,18 @@ const meetingPopup = document.getElementById('meetingPopup');
 
 //pop-up bij klikken op emergency button
 meetingBtn.addEventListener('click', function () {
-    console.log('clicked on meeting button');
     const ic = cookie.getCookie('lobby_invite_code');
-    console.log(ic);
     //Start meeting post method
-    fetch(`https://iotai-backend.onrender.com/lobby/NOjEhv/start-meeting`, {
+    fetch(`https://iotai-backend.onrender.com/lobby/${ic}/start-meeting`, {
         method: 'POST',
     });
 });
 
 function checkForMeeting() {
-    console.log('checking for meeting');
     const ic = cookie.getCookie('lobby_invite_code');
     fetch(`https://iotai-backend.onrender.com/lobby/${ic}`)
         .then((res) => res.json())
         .then((lobby) => {
-            console.log(lobby);
             if (lobby.meeting_is_active == 1) {
                 activateMeeting();
             }
