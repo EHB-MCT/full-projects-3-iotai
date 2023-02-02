@@ -64,12 +64,23 @@ function voted() {
 }
 
 /*Voting countdown*/
-var count = 120;
+var count = 30;
 var redirect = setInterval(function () {
     document.getElementById('countdown').innerHTML = count;
     count--;
     if (count <= 0) {
+        endMeeting();
         clearInterval(redirect);
         window.location = '#'; //redirect to animation page or back to the game
     }
 }, 1000);
+
+async function endMeeting() {
+    fetch(`https://iotai-backend.onrender.com/lobby/${lobby_ic}/end-meeting`)
+        .then((res) => res.json())
+        .then((data) => {
+            console.log('meeting ended');
+            /*const progress = document.querySelector('#progress');
+            progress.style.width = `${data.progress}%`;*/
+        });
+}

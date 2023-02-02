@@ -27,7 +27,6 @@ body {
 #voting-system {
     display: flex;
     text-align: center;
-    /*  background-color: red; */
     flex-wrap: wrap;
     margin-bottom: 5%;
 }
