@@ -13,9 +13,7 @@ window.onload = async () => {
 // Keep checking task progress
 setInterval(() => {
     renderTaskProgress();
-    if(checkForMeeting){
-        activateMeeting();
-    }
+    checkForMeeting();
 }, 1000);
 
 async function renderTaskProgress() {
@@ -157,25 +155,25 @@ meetingBtn.addEventListener('click', function () {
     const ic = cookie.getCookie('lobby_invite_code');
     console.log(ic);
     //Start meeting post method
-    fetch(`https://iotai-backend.onrender.com/lobby/Ajr2in/start-meeting`, {
-            method: 'POST'
-        })
+    fetch(`https://iotai-backend.onrender.com/lobby/NOjEhv/start-meeting`, {
+        method: 'POST',
+    });
 });
 
-function checkForMeeting(){
-    console.log("checking for meeting");
+function checkForMeeting() {
+    console.log('checking for meeting');
     const ic = cookie.getCookie('lobby_invite_code');
     fetch(`https://iotai-backend.onrender.com/lobby/${ic}`)
-    .then((res) => res.json())
-    .then((lobby) => {
-        if(lobby.meeting_is_active == 1){
+        .then((res) => res.json())
+        .then((lobby) => {
             console.log(lobby);
-            return true;
-        }
-    })
+            if (lobby.meeting_is_active == 1) {
+                activateMeeting();
+            }
+        });
 }
 
-function activateMeeting(){
+function activateMeeting() {
     meetingPopup.style.display = 'block';
     document.getElementById('background-overlay').style.display = 'block';
     setTimeout(function () {
