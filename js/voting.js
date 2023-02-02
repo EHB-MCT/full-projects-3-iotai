@@ -77,7 +77,7 @@ var redirect = setInterval(function () {
     if (count <= 0) {
         endMeeting();
         clearInterval(redirect);
-        window.location = '#'; //redirect to animation page or back to the game
+        window.location.href = '../html/death-animation.html'; //redirect to animation page
     }
 }, 1000);
 
