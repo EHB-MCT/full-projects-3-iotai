@@ -70,6 +70,7 @@ async function initPopups() {
             const popup = document.createElement('div');
             popup.id = 'popup';
             popup.style.display = 'block';
+            document.getElementById('background-overlay').style.display = 'block';
             // Get TASK info
             fetch(`https://iotai-backend.onrender.com/task/${taskId}`)
                 .then((res) => res.json())
@@ -118,6 +119,7 @@ async function initPopups() {
                                     setTimeout(() => {
                                         popup.remove();
                                         btn.style.display = 'none';
+                                        document.getElementById('background-overlay').style.display = 'none';
                                     }, '2000');
                                 });
                         } else {
@@ -133,6 +135,7 @@ async function initPopups() {
                     const close = popup.getElementsByClassName('close')[0];
                     close.onclick = function () {
                         popup.remove();
+                        document.getElementById('background-overlay').style.display = 'none';
                     };
                 });
         });
@@ -171,6 +174,7 @@ function checkForMeeting(){
 
 function activateMeeting(){
     meetingPopup.style.display = 'block';
+    document.getElementById('background-overlay').style.display = 'block';
     setTimeout(function () {
         window.location.href = '../html/voting.html';
     }, 10000);
