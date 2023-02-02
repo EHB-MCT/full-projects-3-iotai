@@ -2,6 +2,8 @@
 
 import * as cookie from './cookie.js';
 
+var meetingActive = false;
+
 window.onload = async () => {
     await renderTasks();
     renderTaskProgress();
@@ -11,7 +13,9 @@ window.onload = async () => {
 // Keep checking task progress
 setInterval(() => {
     renderTaskProgress();
-    checkForMeeting();
+    if(checkForMeeting){
+        activateMeeting();
+    }
 }, 1000);
 
 async function renderTaskProgress() {
@@ -159,7 +163,6 @@ meetingBtn.addEventListener('click', function () {
 });
 
 function checkForMeeting(){
-    var meetingActive = false;
     console.log("checking for meeting");
     const ic = cookie.getCookie('lobby_invite_code');
     fetch(`https://iotai-backend.onrender.com/lobby/${ic}`)
@@ -167,7 +170,7 @@ function checkForMeeting(){
     .then((lobby) => {
         if(lobby.meeting_is_active == 1){
             console.log(lobby);
-            meetingActive = true;
+            return true;
         }
     })
 }
