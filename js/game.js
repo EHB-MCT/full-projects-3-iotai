@@ -11,6 +11,7 @@ window.onload = async () => {
 // Keep checking task progress
 setInterval(() => {
     renderTaskProgress();
+    checkForMeeting();
 }, 1000);
 
 async function renderTaskProgress() {
@@ -143,13 +144,34 @@ async function initPopups() {
 const meetingBtn = document.querySelector('.meeting-button');
 const meetingPopup = document.getElementById('meetingPopup');
 
-//pop-up bij klikken
+//pop-up bij klikken op emergency button
 meetingBtn.addEventListener('click', function () {
     console.log('clicked on meeting button');
-    meetingPopup.style.display = 'block';
+    const ic = cookie.getCookie('lobby_invite_code');
+    console.log(ic);
+    //Start meeting post method
+    fetch(`https://iotai-backend.onrender.com/lobby/Ajr2in/start-meeting`, {
+            method: 'POST'
+        })
+});
 
-    //redirect to voting page after 10 seconds
+function checkForMeeting(){
+    var meetingActive = false;
+    console.log("checking for meeting");
+    const ic = cookie.getCookie('lobby_invite_code');
+    fetch(`https://iotai-backend.onrender.com/lobby/${ic}`)
+    .then((res) => res.json())
+    .then((lobby) => {
+        if(lobby.meeting_is_active == 1){
+            console.log(lobby);
+            meetingActive = true;
+        }
+    })
+}
+
+function activateMeeting(){
+    meetingPopup.style.display = 'block';
     setTimeout(function () {
         window.location.href = '../html/voting.html';
     }, 10000);
-});
+}
