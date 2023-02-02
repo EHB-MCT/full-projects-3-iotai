@@ -14,7 +14,7 @@ setInterval(() => {
 }, 1000);
 
 async function renderTaskProgress() {
-    fetch(`http://localhost:1337/tasks/progress/${cookie.getCookie('lobby_invite_code')}`)
+    fetch(`https://iotai-backend.onrender.com/tasks/progress/${cookie.getCookie('lobby_invite_code')}`)
         .then((res) => res.json())
         .then((data) => {
             const progress = document.querySelector('#progress');
@@ -23,7 +23,7 @@ async function renderTaskProgress() {
 }
 
 async function renderTasks() {
-    await fetch(`http://localhost:1337/tasks/player/all`, {
+    await fetch(`https://iotai-backend.onrender.com/tasks/player/all`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -69,6 +69,7 @@ async function initPopups() {
             const popup = document.createElement('div');
             popup.id = 'popup';
             popup.style.display = 'block';
+            document.getElementById('background-overlay').style.display = 'block';
             // Get TASK info
             fetch(`https://iotai-backend.onrender.com/task/${taskId}`)
                 .then((res) => res.json())
@@ -117,6 +118,7 @@ async function initPopups() {
                                     setTimeout(() => {
                                         popup.remove();
                                         btn.style.display = 'none';
+                                        document.getElementById('background-overlay').style.display = 'none';
                                     }, '2000');
                                 });
                         } else {
@@ -132,6 +134,7 @@ async function initPopups() {
                     const close = popup.getElementsByClassName('close')[0];
                     close.onclick = function () {
                         popup.remove();
+                        document.getElementById('background-overlay').style.display = 'none';
                     };
                 });
         });
@@ -147,6 +150,7 @@ const meetingPopup = document.getElementById('meetingPopup');
 meetingBtn.addEventListener('click', function () {
     console.log('clicked on meeting button');
     meetingPopup.style.display = 'block';
+    document.getElementById('background-overlay').style.display = 'block';
 
     //redirect to voting page after 10 seconds
     setTimeout(function () {
