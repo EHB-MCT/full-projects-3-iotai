@@ -169,8 +169,9 @@ function checkForMeeting(){
     .then((res) => res.json())
     .then((lobby) => {
         if(lobby.meeting_is_active == 1){
-            console.log(lobby);
             return true;
+        }else{
+            return false;
         }
     })
 }
