@@ -4,9 +4,9 @@ import * as cookie from './cookie.js';
 
 window.onload = async () => {
     initPopups();
-    const role = cookie.getCookie('role')
+    const role = cookie.getCookie('role');
     if (role == 'Scientist' || role == undefined || role == '') {
-        renderEliminatedButton()
+        renderEliminatedButton();
     }
     console.log(document.cookie);
     await renderTasks();
@@ -20,20 +20,21 @@ setInterval(() => {
 
 async function renderEliminatedButton() {
     document.querySelector('#eliminated-id').innerHTML = `<div class="eliminated-button glow_red red" id="eliminated-btn">
-    <img class="eliminated_icon" src="../assets/icons/eliminated-icon.png" alt="Eliminated" /> </div>`
+    <img class="eliminated_icon" src="../assets/icons/eliminated-icon.png" alt="Eliminated" /> </div>`;
     console.log('Scientist');
-    const btn = document.getElementById("eliminated-id")
+    const btn = document.getElementById('eliminated-id');
     console.log(btn);
-    btn.addEventListener("click", () => {
-        console.log("click")
+    btn.addEventListener('click', () => {
+        console.log('click');
+        confirmOverlay.style.display = 'block';
 
         //TO DO : If confirmed, scientist needs to be stored as eliminated in database, else stays in the game
-        if (confirm("Do you confirm your elimination?") == true) {
-            text = "You pressed OK!";
+        if (confirm('Do you confirm your elimination?') == true) {
+            text = 'You pressed OK!';
         } else {
-            text = "You cancelled!";
+            text = 'You cancelled!';
         }
-    })
+    });
     btn.style.display = 'block';
 }
 
@@ -48,16 +49,16 @@ async function renderTaskProgress() {
 
 async function renderTasks() {
     await fetch(`https://iotai-backend.onrender.com/tasks/player/all`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                player_id: cookie.getCookie('player_id'),
-                lobby_ic: cookie.getCookie('lobby_invite_code'),
-                amount: 3,
-            }),
-        })
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            player_id: cookie.getCookie('player_id'),
+            lobby_ic: cookie.getCookie('lobby_invite_code'),
+            amount: 3,
+        }),
+    })
         .then((res) => res.json())
         .then((data) => {
             const tasks = data.tasks;
@@ -127,15 +128,15 @@ async function initPopups() {
                             taskText.innerHTML = 'Task completed!';
                             // complete task in backend
                             await fetch(`https://iotai-backend.onrender.com/task/${task.id}/complete`, {
-                                    method: 'PUT',
-                                    headers: {
-                                        'Content-Type': 'application/json',
-                                    },
-                                    body: JSON.stringify({
-                                        player_id: cookie.getCookie('player_id'),
-                                        lobby_invite_code: cookie.getCookie('lobby_invite_code'),
-                                    }),
-                                })
+                                method: 'PUT',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify({
+                                    player_id: cookie.getCookie('player_id'),
+                                    lobby_invite_code: cookie.getCookie('lobby_invite_code'),
+                                }),
+                            })
                                 .then((res) => res.json())
                                 .then((data) => {
                                     setTimeout(() => {
