@@ -18,18 +18,10 @@ async function checkIfLobbyHasStarted() {
     await fetch(`https://iotai-backend.onrender.com/lobby/${ic}`)
         .then((res) => res.json())
         .then(async (lobby) => {
+            console.log(lobby);
             // redirect if started
             if (lobby.started) {
                 console.log('Lobby started');
-                await fetch(`https://iotai-backend.onrender.com/tasks/assign`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ player_id: cookie.getCookie('player_id'), lobby_id: cookie.getCookie('lobby_id'), amount: 3 }),
-                })
-                    .then((res) => res.json())
-                    .then((data) => {
-                        console.log(data);
-                    });
                 window.location = window.location.href.substring(0, window.location.href.lastIndexOf('/')) + '/role.html';
             }
         });
