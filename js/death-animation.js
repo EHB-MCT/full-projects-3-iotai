@@ -8,6 +8,8 @@ window.onload = (event) => {
     }, 400);
 };
 
+backToGame();
+
 function backToGame(){
     //Set "meeting active" to false (0) in database
     fetch(`https://iotai-backend.onrender.com/lobby/NOjEhv/end-meeting`, {
