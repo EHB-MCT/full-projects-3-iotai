@@ -111,7 +111,7 @@ async function browseAvatars(direction) {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            player_id: 1,
+            player_id: cookie.getCookie('player_id'),
             avatar: nextAvatar,
         }),
     });

@@ -83,7 +83,7 @@ async function initPopups() {
                     popup.innerHTML = `
                     <div id="popup" style="display: block">
                     <div class="popup-content">
-                        <img class="close" src="/assets/icons/cross-icon.png" height="30px" />
+                        <img class="close" src="../assets/icons/cross-icon.png" height="30px" />
                         <p class="task-text" id="task-text">${task.description}</p>
                         <img class="task-image" id="task-image" src='../assets/tasks/${task.img}'>
                         <div class="form">
