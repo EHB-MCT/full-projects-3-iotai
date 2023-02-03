@@ -7,7 +7,7 @@ window.onload = () => {
 };
 
 function renderWinners() {
-    fetch(`http://localhost:1337/lobby/${cookie.getCookie('lobby_ic')}/end-check`, { method: 'POST' })
+    fetch(`https://iotai-backend.onrender.com/lobby/${cookie.getCookie('lobby_ic')}/end-check`, { method: 'POST' })
         .then((res) => res.json())
         .then((data) => {
             const roleTitle = document.querySelector('#role-title');

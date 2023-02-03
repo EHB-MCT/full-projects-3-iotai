@@ -20,7 +20,7 @@ setInterval(() => {
 }, 1000);
 
 async function checkForEndGame() {
-    await fetch(`http://localhost:1337/lobby/${cookie.getCookie('lobby_ic')}/end-check`, { method: 'POST' })
+    await fetch(`https://iotai-backend.onrender.com/lobby/${cookie.getCookie('lobby_ic')}/end-check`, { method: 'POST' })
         .then((res) => res.json())
         .then((data) => {
             if (data.ended == 1 || data.ended == true) {
