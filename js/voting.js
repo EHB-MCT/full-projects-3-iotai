@@ -3,14 +3,28 @@
 import * as cookie from './cookie.js';
 
 window.onload = async () => {
-    await addPlayers();
+    await renderPlayers();
     initVoteButton();
+    renderVoteCount();
+    if (cookie.getCookie('voted_on')) {
+        renderVotedOn();
+    }
 };
 
+setInterval(() => {
+    renderVoteCount();
+}, 1000);
+
+function renderVotedOn() {
+    const votedOn = cookie.getCookie('voted_on');
+    const voteBtn = document.getElementById(votedOn);
+    voteBtn.textContent = 'Voted';
+    voteBtn.classList.add('button-yellow');
+}
+
 /*spelers inladen*/
-async function addPlayers() {
+async function renderPlayers() {
     const votingContainer = document.querySelector('#voting-system');
-    cookie.setCookie('lobby_ic', 'GNHNTR');
     console.log(document.cookie);
     const lobby_ic = cookie.getCookie('lobby_ic');
     await fetch(`https://iotai-backend.onrender.com/lobby/${lobby_ic}`, {
@@ -27,7 +41,7 @@ async function addPlayers() {
             <p>${player.name}</p>
             <div class="av-vote">
             <img id="avatar-img" src="../assets/avatars/avatar-${player.avatar}.png">
-            <button class="btn-vote button-green" id="btn${index}">Vote</button>
+            <button class="btn-vote button-green" id="${player.players_id}">Vote</button>
             </div>
             </div>
             `;
@@ -39,17 +53,24 @@ async function initVoteButton() {
     /*pressing vote button*/
     const voteBTNs = document.querySelectorAll('.btn-vote');
     const skipVoteBTN = document.querySelector('#btn-skip-vote');
-    let hasVoted = false;
 
     voteBTNs.forEach((button) => {
         button.addEventListener('click', () => {
-            if (hasVoted == true) return;
+            if (cookie.getCookie('voted_on')) return;
             button.innerHTML = 'Voted';
             // vote fetch api
+            fetch(`https://iotai-backend.onrender.com/vote`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ voter_id: cookie.getCookie('player_id'), voted_id: button.id, lobby_ic: cookie.getCookie('lobby_ic') }),
+            })
+                .then((res) => res.json())
+                .then(() => {
+                    // store in cookie so u cant revote on page refresh
+                    cookie.setCookie('voted_on', button.id);
+                });
             button.classList.add('button-yellow');
-
-            // Update has voted state
-            hasVoted = true;
+            renderVoteCount();
         });
     });
     skipVoteBTN.addEventListener('click', () => {
@@ -63,31 +84,49 @@ async function initVoteButton() {
     });
 }
 
-/*show amount of votes*/
-var votes = 0;
-function voted() {
-    document.getElementById('vote-amount').innerHTML = votes + 1;
-}
+let count = 60;
+async function renderVoteCount() {
+    const lobby_ic = cookie.getCookie('lobby_ic');
+    let playerCount = 0;
+    let voteCount = 0;
+    await fetch(`https://iotai-backend.onrender.com/lobby/${lobby_ic}`)
+        .then((res) => res.json())
+        .then((data) => {
+            playerCount = data.player_count;
+        });
+    await fetch(`https://iotai-backend.onrender.com/votes/${lobby_ic}/count`)
+        .then((res) => res.json())
+        .then((data) => {
+            voteCount = data.voteCount;
+        });
+    document.getElementById('vote-amount').textContent = `${voteCount}/${playerCount}`;
 
-/*Voting countdown*/
-var count = 30;
-var redirect = setInterval(function () {
     document.getElementById('countdown').innerHTML = count;
     count--;
-    if (count <= 0) {
+    if (count <= 0 || voteCount == playerCount) {
         endMeeting();
-        clearInterval(redirect);
-        window.location.href = '../html/death-animation.html'; //redirect to animation page
+        if (!cookie.getCookie('voted_on')) window.location.href = '../html/game.html';
+        ejectPlayer();
     }
-}, 1000);
+}
+
+async function ejectPlayer() {
+    // find player with most votes
+    await fetch(`https://iotai-backend.onrender.com/most-voted-player/${cookie.getCookie('lobby_ic')}`)
+        .then((res) => res.json())
+        .then((data) => {
+            // store in cookie
+            cookie.setCookie('ejected_player_id', data.player.id);
+            cookie.setCookie('ejected_player_votes', data.votes);
+        });
+    // Delete votes from lobby
+    await fetch(`https://iotai-backend.onrender.com/votes/${cookie.getCookie('lobby_ic')}`, { method: 'DELETE' });
+
+    // redirect
+    window.location.href = '../html/death-animation.html'; //redirect to animation page
+}
 
 async function endMeeting() {
-    const lobby_ic = cookie.getCookie('lobby_invite_code');
-    fetch(`https://iotai-backend.onrender.com/lobby/${lobby_ic}/end-meeting`)
-        .then((res) => res.json())
-        .then(() => {
-            console.log('meeting ended');
-            /*const progress = document.querySelector('#progress');
-            progress.style.width = `${data.progress}%`;*/
-        });
+    const lobby_ic = cookie.getCookie('lobby_ic');
+    fetch(`https://iotai-backend.onrender.com/lobby/${lobby_ic}/end-meeting`, { method: 'POST' });
 }
