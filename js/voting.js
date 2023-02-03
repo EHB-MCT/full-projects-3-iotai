@@ -69,8 +69,8 @@ async function initVoteButton() {
     /*pressing vote button*/
     const voteBTNs = document.querySelectorAll('.btn-vote');
     const skipVoteBTN = document.querySelector('#btn-skip-vote');
-
-    if ((await isPlayerAlive()) == false) return;
+    // disable buttons if player (you) is dead
+    if ((await isPlayerAlive(cookie.getCookie('player_id'), cookie.getCookie('lobby_id'))) == false) return;
     voteBTNs.forEach((button) => {
         button.addEventListener('click', () => {
             if (cookie.getCookie('voted_on')) return;
