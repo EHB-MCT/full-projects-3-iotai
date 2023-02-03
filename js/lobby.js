@@ -14,28 +14,19 @@ setInterval(() => {
     renderLobby();
 }, 2000);
 
-async function checkIfLobbyHasStarted() {
-    const ic = cookie.getCookie('lobby_ic');
-    await fetch(`https://iotai-backend.onrender.com/lobby/${ic}`)
-        .then((res) => res.json())
-        .then(async (lobby) => {
-            console.log(lobby);
-            // redirect if started
-            if (lobby.started) {
-                console.log('Lobby started');
-                window.location = window.location.href.substring(0, window.location.href.lastIndexOf('/')) + '/role.html';
-            }
-        });
-}
-
 function renderLobby() {
     const prompt = document.querySelector('#prompt');
     const playersDiv = document.querySelector('#players');
 
-    const ic = cookie.getCookie('lobby_invite_code');
+    const ic = cookie.getCookie('lobby_ic');
     fetch(`https://iotai-backend.onrender.com/lobby/${ic}`)
         .then((res) => res.json())
         .then((lobby) => {
+            if (lobby.started) {
+                console.log('Lobby started');
+                window.location = window.location.href.substring(0, window.location.href.lastIndexOf('/')) + '/role.html';
+                return;
+            }
             cookie.setCookie('lobby_id', lobby.id, { 'max-age': 60 * 60 * 3 });
             prompt.textContent = `Waiting for players... ${lobby.player_count}/${lobby.player_limit}`;
             playersDiv.innerHTML = '';
