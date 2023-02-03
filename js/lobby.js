@@ -3,7 +3,7 @@
 import * as cookie from './cookie.js';
 
 window.onload = () => {
-    console.log('Logging from NEWEST COMMIT AT 1030PM');
+    console.log('Logging from NEWEST COMMIT AT 2AM');
     renderLobby();
     checkIfLobbyHasStarted();
     console.log(document.cookie);
@@ -15,7 +15,7 @@ setInterval(() => {
 }, 2000);
 
 async function checkIfLobbyHasStarted() {
-    const ic = cookie.getCookie('lobby_invite_code');
+    const ic = cookie.getCookie('lobby_ic');
     await fetch(`https://iotai-backend.onrender.com/lobby/${ic}`)
         .then((res) => res.json())
         .then(async (lobby) => {
