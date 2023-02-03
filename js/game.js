@@ -9,13 +9,25 @@ window.onload = async () => {
     renderTaskProgress();
     initPopups();
     console.log(document.cookie);
+    checkForEndGame();
 };
 
-// Keep checking task progress
+// Keep checking task progress / meeting state / end game?
 setInterval(() => {
     renderTaskProgress();
     checkForMeeting();
+    checkForEndGame();
 }, 1000);
+
+async function checkForEndGame() {
+    await fetch(`http://localhost:1337/lobby/${cookie.getCookie('lobby_ic')}/end-check`, { method: 'POST' })
+        .then((res) => res.json())
+        .then((data) => {
+            if (data.ended == 1 || data.ended == true) {
+                window.location.href = '../html/game_end.html';
+            }
+        });
+}
 
 async function renderTaskProgress() {
     fetch(`https://iotai-backend.onrender.com/tasks/progress/${cookie.getCookie('lobby_ic')}`)
