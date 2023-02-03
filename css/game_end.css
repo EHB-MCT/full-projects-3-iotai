@@ -1,0 +1,28 @@
+@media only screen and (orientation: portrait) {
+    body {
+        height: 100vw;
+        transform: rotate(90deg);
+    }
+}
+
+body {
+    background-color: var(--bg);
+    height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+.role-title {
+    font-family: industry-inc-outline, sans-serif;
+    font-size: 60px;
+}
+
+.players {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}

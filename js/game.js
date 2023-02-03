@@ -8,20 +8,32 @@ window.onload = async () => {
     await renderTasks();
     renderTaskProgress();
     initPopups();
+    console.log(document.cookie);
+    checkForEndGame();
 };
 
-// Keep checking task progress
+// Keep checking task progress / meeting state / end game?
 setInterval(() => {
     renderTaskProgress();
-    if(checkForMeeting){
-        activateMeeting();
-    }
+    checkForMeeting();
+    checkForEndGame();
 }, 1000);
 
-async function renderTaskProgress() {
-    fetch(`https://iotai-backend.onrender.com/tasks/progress/${cookie.getCookie('lobby_invite_code')}`)
+async function checkForEndGame() {
+    await fetch(`https://iotai-backend.onrender.com/lobby/${cookie.getCookie('lobby_ic')}/end-check`, { method: 'POST' })
         .then((res) => res.json())
         .then((data) => {
+            if (data.ended == 1 || data.ended == true) {
+                window.location.href = '../html/game_end.html';
+            }
+        });
+}
+
+async function renderTaskProgress() {
+    fetch(`https://iotai-backend.onrender.com/tasks/progress/${cookie.getCookie('lobby_ic')}`)
+        .then((res) => res.json())
+        .then((data) => {
+            if (data.status == 400) return;
             const progress = document.querySelector('#progress');
             progress.style.width = `${data.progress}%`;
         });
@@ -35,7 +47,7 @@ async function renderTasks() {
         },
         body: JSON.stringify({
             player_id: cookie.getCookie('player_id'),
-            lobby_ic: cookie.getCookie('lobby_invite_code'),
+            lobby_ic: cookie.getCookie('lobby_ic'),
             amount: 3,
         }),
     })
@@ -83,9 +95,9 @@ async function initPopups() {
                     popup.innerHTML = `
                     <div id="popup" style="display: block">
                     <div class="popup-content">
-                        <img class="close" src="/assets/icons/cross-icon.png" height="30px" />
+                        <img class="close" src="../assets/icons/cross-icon.png" height="30px" />
                         <p class="task-text" id="task-text">${task.description}</p>
-                        <img class="task-image" id="task-image" src=/assets/tasks/${task.img}>
+                        <img class="task-image" id="task-image" src='../assets/tasks/${task.img}'>
                         <div class="form">
                             <div class="input">
                                 <input required type="text" name="text" autocomplete="off" placeholder="Answer" class="input" id="answerInput" />
@@ -115,7 +127,7 @@ async function initPopups() {
                                 },
                                 body: JSON.stringify({
                                     player_id: cookie.getCookie('player_id'),
-                                    lobby_invite_code: cookie.getCookie('lobby_invite_code'),
+                                    lobby_invite_code: cookie.getCookie('lobby_ic'),
                                 }),
                             })
                                 .then((res) => res.json())
@@ -153,29 +165,25 @@ const meetingPopup = document.getElementById('meetingPopup');
 
 //pop-up bij klikken op emergency button
 meetingBtn.addEventListener('click', function () {
-    console.log('clicked on meeting button');
-    const ic = cookie.getCookie('lobby_invite_code');
-    console.log(ic);
+    const ic = cookie.getCookie('lobby_ic');
     //Start meeting post method
-    fetch(`https://iotai-backend.onrender.com/lobby/Ajr2in/start-meeting`, {
-            method: 'POST'
-        })
+    fetch(`https://iotai-backend.onrender.com/lobby/${ic}/start-meeting`, {
+        method: 'POST',
+    });
 });
 
-function checkForMeeting(){
-    console.log("checking for meeting");
-    const ic = cookie.getCookie('lobby_invite_code');
+function checkForMeeting() {
+    const ic = cookie.getCookie('lobby_ic');
     fetch(`https://iotai-backend.onrender.com/lobby/${ic}`)
-    .then((res) => res.json())
-    .then((lobby) => {
-        if(lobby.meeting_is_active == 1){
-            console.log(lobby);
-            return true;
-        }
-    })
+        .then((res) => res.json())
+        .then((lobby) => {
+            if (lobby.meeting_is_active == 1) {
+                activateMeeting();
+            }
+        });
 }
 
-function activateMeeting(){
+function activateMeeting() {
     meetingPopup.style.display = 'block';
     document.getElementById('background-overlay').style.display = 'block';
     setTimeout(function () {

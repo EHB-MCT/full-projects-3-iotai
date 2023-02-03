@@ -61,9 +61,9 @@ function initJoinLobby() {
         })
             .then((res) => res.json())
             .then(async (lobby) => {
-                console.log(lobby);
+                if (lobby.status == 400) return alert(lobby.message);
                 const timeUntillCookieExpiresInSeconds = 60 * 60 * 3; // Set to 3hrs
-                await cookie.setCookie('lobby_invite_code', ic, {
+                cookie.setCookie('lobby_ic', ic, {
                     'max-age': timeUntillCookieExpiresInSeconds,
                 });
                 window.location = window.location.href.substring(0, window.location.href.lastIndexOf('/')) + '/lobby.html';
@@ -71,7 +71,7 @@ function initJoinLobby() {
     });
 }
 
-function browseAvatars(direction) {
+async function browseAvatars(direction) {
     const avatars = {
         green: [
             'agate-g',
@@ -105,13 +105,13 @@ function browseAvatars(direction) {
     avatarIMG.setAttribute('src', `../assets/avatars/avatar-${nextAvatar}.png`);
     avatarIMG.setAttribute('alt', nextAvatar);
     console.log(nextAvatar);
-    fetch('https://iotai-backend.onrender.com/player/avatar/update', {
+    await fetch('https://iotai-backend.onrender.com/player/avatar/update', {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            player_id: 1,
+            player_id: cookie.getCookie('player_id'),
             avatar: nextAvatar,
         }),
     });

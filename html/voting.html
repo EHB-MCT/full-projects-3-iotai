@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Lobby</title>
+        <link rel="icon" href="../assets/evologo.png" type="images/x-icon" />
+        <link rel="stylesheet" href="../css/voting.css" />
+        <script src="../js/info-btn.js" defer></script>
+        <script src="../js/voting.js" type="module" defer></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="voting-wrapper">
+                <p class="subtitles" id="prompt">Vote for your main suspect.</p>
+                <p class="subtitles" id="prompt">Voting end in <span id="countdown">60</span> seconds.</p>
+
+                <p class="subtitles" id="prompt">Voted: <span id="vote-amount">0</span></p>
+            </div>
+            <div id="voting-system"></div>
+        </div>
+
+        <div class="skip-wrapper">
+            <div class="skip-vote">
+                <button class="btn-skip-vote button-green" id="btn-skip-vote">Skip Vote</button>
+            </div>
+        </div>
+    </body>
+</html>
