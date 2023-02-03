@@ -4,7 +4,7 @@ body {
     background-color: var(--bg);
 }
 
-#prompt {
+.prompt {
     width: 100%;
     text-align: center;
     margin: 20px 0px 30px;

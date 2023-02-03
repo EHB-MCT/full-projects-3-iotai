@@ -2,12 +2,13 @@
 
 import * as cookie from './cookie.js';
 
-function isPlayerAlive(player_id, lobby_id) {
-    return fetch(`https://iotai-backend.onrender.com/player/${player_id}/lobby/${lobby_id}`).then((res) => res.json());
+async function isPlayerAlive(player_id, lobby_id) {
+    return await fetch(`https://iotai-backend.onrender.com/player/${player_id}/lobby/${lobby_id}`).then((res) => res.json());
 }
 
 window.onload = async () => {
     await renderPlayers();
+    await renderVoteLimit();
     initVoteButton();
     renderVoteCount();
     if (cookie.getCookie('voted_on')) {
@@ -29,7 +30,6 @@ function renderVotedOn() {
 /*spelers inladen*/
 async function renderPlayers() {
     const votingContainer = document.querySelector('#voting-system');
-    console.log(document.cookie);
     const lobby_ic = cookie.getCookie('lobby_ic');
     await fetch(`https://iotai-backend.onrender.com/lobby/${lobby_ic}`, {
         method: 'GET',
@@ -40,24 +40,12 @@ async function renderPlayers() {
         .then((res) => res.json())
         .then((lobby) => {
             lobby.players.forEach(async (player, index) => {
-                console.log(player);
-                if ((await isPlayerAlive(player.players_id, cookie.getCookie('lobby_id'))) == false) {
-                    votingContainer.innerHTML += `
-            <div class="votingContainer ejected">
+                votingContainer.innerHTML += `
+            <div class="votingContainer ejected" id="votingContainer${player.players_id}">
             <p>${player.name}</p>
             <div class="av-vote">
             <img id="avatar-img" src="../assets/avatars/avatar-${player.avatar}.png">
-            <button class="btn-no-vote button-red" id="${player.players_id}">Vote</button>
-            </div>
-            </div>
-            `;
-                } else
-                    votingContainer.innerHTML += `
-            <div class="votingContainer">
-            <p>${player.name}</p>
-            <div class="av-vote">
-            <img id="avatar-img" src="../assets/avatars/avatar-${player.avatar}.png">
-            <button class="btn-vote button-green" id="${player.players_id}">Vote</button>
+            <button class="btn-no-vote button-green" id="${player.players_id}">Vote</button>
             </div>
             </div>
             `;
@@ -70,7 +58,7 @@ async function initVoteButton() {
     const voteBTNs = document.querySelectorAll('.btn-vote');
     const skipVoteBTN = document.querySelector('#btn-skip-vote');
     // disable buttons if player (you) is dead
-    if ((await isPlayerAlive(cookie.getCookie('player_id'), cookie.getCookie('lobby_id'))) == false) return;
+    if (isPlayerAlive(cookie.getCookie('player_id'), cookie.getCookie('lobby_id')) == false) return;
     voteBTNs.forEach((button) => {
         button.addEventListener('click', () => {
             if (cookie.getCookie('voted_on')) return;
@@ -101,23 +89,33 @@ async function initVoteButton() {
     });
 }
 
-let count = 60;
-async function renderVoteCount() {
-    const lobby_ic = cookie.getCookie('lobby_ic');
-    let playerCount = 0;
-    let voteCount = 0;
+async function renderVoteLimit() {
     await fetch(`https://iotai-backend.onrender.com/lobby/${cookie.getCookie('lobby_id')}/players-alive`)
         .then((res) => res.json())
         .then((data) => {
-            playerCount = data.length;
+            document.getElementById('vote-limit').textContent = data.length;
+            console.log(data);
+            for (let player of data) {
+                const container = document.getElementById(`votingContainer${player.id}`);
+                container.style.opacity = '100%';
+                const btn = document.getElementById(player.id);
+                btn.classList.replace('btn-no-vote', 'btn-vote');
+            }
         });
+}
+
+let count = 60;
+async function renderVoteCount() {
+    const lobby_ic = cookie.getCookie('lobby_ic');
+    let voteCount = 0;
+    const playerCount = document.querySelector('#vote-limit').textContent;
+
     await fetch(`https://iotai-backend.onrender.com/votes/${lobby_ic}/count`)
         .then((res) => res.json())
         .then((data) => {
             voteCount = data.voteCount;
         });
-    document.getElementById('vote-amount').textContent = `${voteCount}/${playerCount}`;
-
+    document.getElementById('vote-amount').textContent = voteCount;
     document.getElementById('countdown').innerHTML = count;
     count--;
     if (count <= 0 || voteCount == playerCount) {
@@ -138,7 +136,7 @@ async function ejectPlayer() {
         });
 
     // redirect
-    // window.location.href = '../html/death-animation.html'; //redirect to animation page
+    window.location.href = '../html/death-animation.html'; //redirect to animation page
 }
 
 async function endMeeting() {
