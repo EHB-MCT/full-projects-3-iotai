@@ -101,7 +101,7 @@ async function initVoteButton() {
     });
 }
 
-let count = 600;
+let count = 60;
 async function renderVoteCount() {
     const lobby_ic = cookie.getCookie('lobby_ic');
     let playerCount = 0;
