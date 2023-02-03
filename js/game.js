@@ -2,6 +2,8 @@
 
 import * as cookie from './cookie.js';
 
+var meetingActive = false;
+
 window.onload = async () => {
     initPopups();
     const role = cookie.getCookie('role');
@@ -11,11 +13,16 @@ window.onload = async () => {
     console.log(document.cookie);
     await renderTasks();
     renderTaskProgress();
+    initPopups();
+    console.log(document.cookie);
+    checkForEndGame();
 };
 
-// Keep checking task progress
+// Keep checking task progress / meeting state / end game?
 setInterval(() => {
     renderTaskProgress();
+    checkForMeeting();
+    checkForEndGame();
 }, 10000);
 
 async function renderEliminatedButton() {
@@ -39,10 +46,21 @@ async function renderEliminatedButton() {
     btn.style.display = 'block';
 }
 
-async function renderTaskProgress() {
-    fetch(`https://iotai-backend.onrender.com/tasks/progress/${cookie.getCookie('lobby_invite_code')}`)
+async function checkForEndGame() {
+    await fetch(`https://iotai-backend.onrender.com/lobby/${cookie.getCookie('lobby_ic')}/end-check`, { method: 'POST' })
         .then((res) => res.json())
         .then((data) => {
+            if (data.ended == 1 || data.ended == true) {
+                window.location.href = '../html/game_end.html';
+            }
+        });
+}
+
+async function renderTaskProgress() {
+    fetch(`https://iotai-backend.onrender.com/tasks/progress/${cookie.getCookie('lobby_ic')}`)
+        .then((res) => res.json())
+        .then((data) => {
+            if (data.status == 400) return;
             const progress = document.querySelector('#progress');
             progress.style.width = `${data.progress}%`;
         });
@@ -50,16 +68,16 @@ async function renderTaskProgress() {
 
 async function renderTasks() {
     await fetch(`https://iotai-backend.onrender.com/tasks/player/all`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                player_id: cookie.getCookie('player_id'),
-                lobby_ic: cookie.getCookie('lobby_invite_code'),
-                amount: 3,
-            }),
-        })
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            player_id: cookie.getCookie('player_id'),
+            lobby_ic: cookie.getCookie('lobby_ic'),
+            amount: 3,
+        }),
+    })
         .then((res) => res.json())
         .then((data) => {
             const tasks = data.tasks;
@@ -95,6 +113,7 @@ async function initPopups() {
             const popup = document.createElement('div');
             popup.id = 'popup';
             popup.style.display = 'block';
+            document.getElementById('background-overlay').style.display = 'block';
             // Get TASK info
             fetch(`https://iotai-backend.onrender.com/task/${taskId}`)
                 .then((res) => res.json())
@@ -103,9 +122,9 @@ async function initPopups() {
                     popup.innerHTML = `
                     <div id="popup" style="display: block">
                     <div class="popup-content">
-                        <img class="close" src="/assets/icons/cross-icon.png" height="30px" />
+                        <img class="close" src="../assets/icons/cross-icon.png" height="30px" />
                         <p class="task-text" id="task-text">${task.description}</p>
-                        <img class="task-image" id="task-image" src=/assets/tasks/${task.img}>
+                        <img class="task-image" id="task-image" src='../assets/tasks/${task.img}'>
                         <div class="form">
                             <div class="input">
                                 <input required type="text" name="text" autocomplete="off" placeholder="Answer" class="input" id="answerInput" />
@@ -129,20 +148,21 @@ async function initPopups() {
                             taskText.innerHTML = 'Task completed!';
                             // complete task in backend
                             await fetch(`https://iotai-backend.onrender.com/task/${task.id}/complete`, {
-                                    method: 'PUT',
-                                    headers: {
-                                        'Content-Type': 'application/json',
-                                    },
-                                    body: JSON.stringify({
-                                        player_id: cookie.getCookie('player_id'),
-                                        lobby_invite_code: cookie.getCookie('lobby_invite_code'),
-                                    }),
-                                })
+                                method: 'PUT',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify({
+                                    player_id: cookie.getCookie('player_id'),
+                                    lobby_invite_code: cookie.getCookie('lobby_ic'),
+                                }),
+                            })
                                 .then((res) => res.json())
                                 .then((data) => {
                                     setTimeout(() => {
                                         popup.remove();
                                         btn.style.display = 'none';
+                                        document.getElementById('background-overlay').style.display = 'none';
                                     }, '2000');
                                 });
                         } else {
@@ -158,6 +178,7 @@ async function initPopups() {
                     const close = popup.getElementsByClassName('close')[0];
                     close.onclick = function () {
                         popup.remove();
+                        document.getElementById('background-overlay').style.display = 'none';
                     };
                 });
         });
@@ -169,13 +190,30 @@ async function initPopups() {
 const meetingBtn = document.querySelector('.meeting-button');
 const meetingPopup = document.getElementById('meetingPopup');
 
-//pop-up bij klikken
+//pop-up bij klikken op emergency button
 meetingBtn.addEventListener('click', function () {
-    console.log('clicked on meeting button');
-    meetingPopup.style.display = 'block';
+    const ic = cookie.getCookie('lobby_ic');
+    //Start meeting post method
+    fetch(`https://iotai-backend.onrender.com/lobby/${ic}/start-meeting`, {
+        method: 'POST',
+    });
+});
 
-    //redirect to voting page after 10 seconds
+function checkForMeeting() {
+    const ic = cookie.getCookie('lobby_ic');
+    fetch(`https://iotai-backend.onrender.com/lobby/${ic}`)
+        .then((res) => res.json())
+        .then((lobby) => {
+            if (lobby.meeting_is_active == 1) {
+                activateMeeting();
+            }
+        });
+}
+
+function activateMeeting() {
+    meetingPopup.style.display = 'block';
+    document.getElementById('background-overlay').style.display = 'block';
     setTimeout(function () {
         window.location.href = '../html/voting.html';
     }, 10000);
-});
+}
