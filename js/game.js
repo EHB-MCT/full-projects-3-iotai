@@ -5,6 +5,12 @@ import * as cookie from './cookie.js';
 var meetingActive = false;
 
 window.onload = async () => {
+    initPopups();
+    const role = cookie.getCookie('role');
+    if (role == 'Scientist' || role == undefined || role == '') {
+        renderEliminatedButton();
+    }
+    console.log(document.cookie);
     await renderTasks();
     renderTaskProgress();
     initPopups();
@@ -17,7 +23,28 @@ setInterval(() => {
     renderTaskProgress();
     checkForMeeting();
     checkForEndGame();
-}, 1000);
+}, 10000);
+
+async function renderEliminatedButton() {
+    document.querySelector('#eliminated-id').innerHTML = `<div class="eliminated-button glow_red red" id="eliminated-btn">
+    <img class="eliminated_icon" src="../assets/icons/eliminated-icon.png" alt="Eliminated" /> </div>`;
+    console.log('Scientist');
+    const btn = document.getElementById('eliminated-id');
+    console.log(btn);
+    btn.addEventListener('click', () => {
+        console.log('click');
+        confirmOverlay.style.display = 'block';
+
+        /* //TO DO : If confirmed, scientist needs to be stored as eliminated in database, else stays in the game
+        if (confirm('Do you confirm your elimination?') == true) {
+            text = 'You pressed OK!';
+        } else {
+            text = 'You cancelled!';
+        } */
+        
+    });
+    btn.style.display = 'block';
+}
 
 async function checkForEndGame() {
     await fetch(`https://iotai-backend.onrender.com/lobby/${cookie.getCookie('lobby_ic')}/end-check`, { method: 'POST' })
