@@ -4,7 +4,7 @@ body {
     background-color: var(--bg);
 }
 
-#prompt {
+.prompt {
     width: 100%;
     text-align: center;
     margin: 20px 0px 30px;
@@ -63,8 +63,13 @@ p {
 }
 
 .btn-vote,
-.btn-skip-vote {
+.btn-skip-vote,
+.btn-no-vote {
     padding: 8px 15px;
+}
+
+.ejected {
+    opacity: 50%;
 }
 
 #btn-vote {
