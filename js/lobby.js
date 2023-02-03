@@ -3,14 +3,10 @@
 import * as cookie from './cookie.js';
 
 window.onload = () => {
-    console.log('Logging from NEWEST COMMIT AT 2AM');
     renderLobby();
-    checkIfLobbyHasStarted();
-    console.log(document.cookie);
 };
 
 setInterval(() => {
-    checkIfLobbyHasStarted();
     renderLobby();
 }, 2000);
 
