@@ -33,7 +33,9 @@ function ejectPlayer() {
     })
         .then((res) => res.json())
         .then((data) => {
-            setTimeout(() => {
+            setTimeout(async () => {
+                // Delete votes from lobby
+                await fetch(`https://iotai-backend.onrender.com/votes/${cookie.getCookie('lobby_ic')}`, { method: 'DELETE' });
                 window.location.href = '../html/game.html';
             }, 5000);
         });

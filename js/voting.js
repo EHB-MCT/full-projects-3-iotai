@@ -119,8 +119,6 @@ async function ejectPlayer() {
             cookie.setCookie('ejected_player_id', data.player.id);
             cookie.setCookie('ejected_player_votes', data.votes);
         });
-    // Delete votes from lobby
-    await fetch(`https://iotai-backend.onrender.com/votes/${cookie.getCookie('lobby_ic')}`, { method: 'DELETE' });
 
     // redirect
     window.location.href = '../html/death-animation.html'; //redirect to animation page
