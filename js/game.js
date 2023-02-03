@@ -14,8 +14,8 @@ window.onload = async () => {
     await renderTasks();
     renderTaskProgress();
     initPopups();
-    console.log(document.cookie);
     checkForEndGame();
+    renderMeetingButton();
 };
 
 // Keep checking task progress / meeting state / end game?
@@ -23,25 +23,34 @@ setInterval(() => {
     renderTaskProgress();
     checkForMeeting();
     checkForEndGame();
-}, 10000);
+}, 1000);
 
 async function renderEliminatedButton() {
     document.querySelector('#eliminated-id').innerHTML = `<div class="eliminated-button glow_red red" id="eliminated-btn">
     <img class="eliminated_icon" src="../assets/icons/eliminated-icon.png" alt="Eliminated" /> </div>`;
-    console.log('Scientist');
     const btn = document.getElementById('eliminated-id');
-    console.log(btn);
+    // Make button clickable if alive
+    if ((await isPlayerAlive()) == false) return;
     btn.addEventListener('click', () => {
-        console.log('click');
+        const confirmOverlay = document.querySelector('#confirmOverlay');
+        const confirmYes = document.querySelector('#confirm-yes');
+        const confirmNo = document.querySelector('#confirm-no');
         confirmOverlay.style.display = 'block';
-
-        /* //TO DO : If confirmed, scientist needs to be stored as eliminated in database, else stays in the game
-        if (confirm('Do you confirm your elimination?') == true) {
-            text = 'You pressed OK!';
-        } else {
-            text = 'You cancelled!';
-        } */
-        
+        confirmYes.addEventListener('click', () => {
+            fetch(`https://iotai-backend.onrender.com/player/eject`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ player_id: cookie.getCookie('player_id'), lobby_invite_code: cookie.getCookie('lobby_ic') }),
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data);
+                    confirmOverlay.style.display = 'none';
+                });
+        });
+        confirmNo.addEventListener('click', () => {
+            confirmOverlay.style.display = 'none';
+        });
     });
     btn.style.display = 'block';
 }
@@ -185,19 +194,22 @@ async function initPopups() {
     });
 }
 
-//Meeting button -> mag niet kunnen verdwijnen met kruisje
+async function renderMeetingButton() {
+    //Meeting button -> mag niet kunnen verdwijnen met kruisje
 
-const meetingBtn = document.querySelector('.meeting-button');
-const meetingPopup = document.getElementById('meetingPopup');
+    const meetingBtn = document.querySelector('.meeting-button');
+    const meetingPopup = document.getElementById('meetingPopup');
 
-//pop-up bij klikken op emergency button
-meetingBtn.addEventListener('click', function () {
-    const ic = cookie.getCookie('lobby_ic');
-    //Start meeting post method
-    fetch(`https://iotai-backend.onrender.com/lobby/${ic}/start-meeting`, {
-        method: 'POST',
+    if ((await isPlayerAlive()) == false) return;
+    //pop-up bij klikken op emergency button
+    meetingBtn.addEventListener('click', function () {
+        const ic = cookie.getCookie('lobby_ic');
+        //Start meeting post method
+        fetch(`https://iotai-backend.onrender.com/lobby/${ic}/start-meeting`, {
+            method: 'POST',
+        });
     });
-});
+}
 
 function checkForMeeting() {
     const ic = cookie.getCookie('lobby_ic');
@@ -216,4 +228,8 @@ function activateMeeting() {
     setTimeout(function () {
         window.location.href = '../html/voting.html';
     }, 10000);
+}
+
+function isPlayerAlive() {
+    return fetch(`https://iotai-backend.onrender.com/player/${cookie.getCookie('player_id')}/lobby/${cookie.getCookie('lobby_id')}`).then((res) => res.json());
 }
